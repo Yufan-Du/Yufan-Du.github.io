@@ -29,10 +29,10 @@ sections:
       buttons:
         - name: All
           tag: '*'
-        - name: Artificial Intelligence
-          tag: Artificial Intelligence
-        - name: Hardware Design
-          tag: Hardware Design
+      #  - name: Artificial Intelligence
+      #    tag: Artificial Intelligence
+      #  - name: Hardware Design
+      #    tag: Hardware Design
       #  - name: Other
       #    tag: Demo
     design:

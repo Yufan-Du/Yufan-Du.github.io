@@ -3,8 +3,10 @@ title: AI-Assisted Schedule Manager
 summary:
 - Created an AI-integrated scheduling application with cross-platform functionality.
 - Utilized natural language processing for efficient schedule management and reminders. 
+
 tags:
   - Artificial Intelligence
+
 date: '2023-06-01T15:00:00Z'
 publishDate: '2023-06-01T15:00:00Z'
 

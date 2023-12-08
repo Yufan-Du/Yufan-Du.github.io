@@ -3,9 +3,11 @@ title: FPGA-Based Snake Game
 summary: 
 - Developed a real-time control mechanism for the Snake game using camera-based hand movement detection.
 - Enhanced player interaction by innovative human-computer interface and provided insights for IoT edge device development.
+
 tags:
   - Artificial Intelligence
   - Hardware Design
+  
 date: '2023-06-20T15:00:00Z'
 publishDate: '2023-06-20T15:00:00Z'
 
