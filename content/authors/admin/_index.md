@@ -1,9 +1,9 @@
 ---
 # Display name
-title: 杜宇凡
+title: Yufan Du
 
 # Name pronunciation (optional)
-name_pronunciation: Yufan Du
+#name_pronunciation: Yufan Du
 
 # Full name (for SEO)
 first_name: Yufan

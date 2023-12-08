@@ -6,6 +6,7 @@ summary:
 tags:
   - Artificial Intelligence
 date: '2023-06-01T'
+publishDate: '2023-06-01T'
 
 # Optional external URL for project (replaces project detail page).
 #external_link: https://example.org
