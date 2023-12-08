@@ -29,8 +29,10 @@ sections:
       buttons:
         - name: All
           tag: '*'
-        - name: AI
-          tag: AI
+        - name: Artificial Intelligence
+          tag: Artificial Intelligence
+        - name: Hardware Design
+          tag: Hardware Design
       #  - name: Other
       #    tag: Demo
     design:
@@ -55,4 +57,13 @@ sections:
     design:
       columns: '2'
       view: citation
+- block: contact
+    id: contact
+    content:
+      title: Contact
+      subtitle:
+      email: nbsdyf@hotmail.com/nbsdyf@stu.pku.edu.cn
+    design:
+      columns: '2'
+
 ---
