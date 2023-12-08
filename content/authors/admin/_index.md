@@ -25,21 +25,21 @@ organizations:
     url: https://pku.edu.cn/
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include AI4EDA, GPU.
+bio: My research interests include ML for EDA, hardware design and GPU accelaration.
 
 # Interests to show in About widget
 interests:
-  - Artificial Intelligence
-  - Electronic Design Automation
+  - Artificial Intelligence (AI)
+  - Electronic Design Automation (EDA)
   - Hardware-software Co-design
-  - GPU accecelaration
+  - GPU accelaration
 
 # Education to show in About widget
 education:
   courses:
     - course: BSc in Applied Physics and Computer Science dual degree
       institution: Peking University
-      year: 2021-
+      year: 2021 - Present
 
 # Skills
 # For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
@@ -118,6 +118,6 @@ social:
 highlight_name: true
 ---
 
- am a student at Peking University, majoring in Applied Physics and Computer Science. My research interests include AI4EDA, GPU acceleration, and hardware-software co-design.
+ I am a student at Peking University, majoring in Applied Physics and Computer Science. My research interests include ML for EDA, hardware-software co-design and GPU acceleration.
 
 {style="text-align: justify;"}s
