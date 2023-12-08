@@ -5,7 +5,7 @@ summary:
 - Utilized natural language processing for efficient schedule management and reminders. 
 tags:
   - Artificial Intelligence
-date: '2023-06-01T00:00:00Z'
+date: '2023-06-01'
 
 # Optional external URL for project (replaces project detail page).
 #external_link: https://example.org

@@ -6,7 +6,7 @@ summary:
 tags:
   - Artificial Intelligence
   - Hardware Design
-date: '2023-06-20T00:00:00Z'
+date: '2023-06-20'
 
 # Optional external URL for project (replaces project detail page).
 external_link: ''
@@ -28,7 +28,7 @@ image:
 #slides: example
 ---
 
-This project integrates FPGA Design, Computer Vision, Computer Graphics, Human-Computer Interaction (HCI), and HDL (Hardware Description Language) Coding. 
+This project integrates FPGA Design, Computer Vision, Computer Graphics, Human-Computer Interaction (HCI), and Hardware Description Language (HDL) Coding. 
 I innovated a novel control mechanism for the classic Snake game, utilizing camera-based detection of player hand movements to enable real-time control of the game character. This unique approach goes beyond conventional button or 2-D touchscreen inputs that limit the freedom of users, providing a more immersive and interactive gaming experience and allowing players to interact in a more natural and intuitive manner
 Additionally, the project's focus on hardware-centric design offers valuable insights for the development of Internet of Things (IoT) edge devices, highlighting its broader application potential.
 
