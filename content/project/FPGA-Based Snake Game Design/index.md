@@ -1,22 +1,19 @@
 ---
-title: Example Project
-summary: An example of using the in-built project page.
+title: FPGA-Based Snake Game
+summary: 
+- Developed a real-time control mechanism for the Snake game using camera-based hand movement detection. \\
+- Enhanced player interaction by innovative human-computer interface and provided insights for IoT edge device development.
 tags:
-  - Deep Learning
+  - AI
 date: '2016-04-27T00:00:00Z'
 
 # Optional external URL for project (replaces project detail page).
 external_link: ''
 
 image:
-  caption: Photo by rawpixel on Unsplash
+  caption: A demo gif
   focal_point: Smart
 
-links:
-  - icon: twitter
-    icon_pack: fab
-    name: Follow
-    url: https://twitter.com/georgecushen
 url_code: ''
 url_pdf: ''
 url_slides: ''

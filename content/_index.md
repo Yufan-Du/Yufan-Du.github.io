@@ -29,8 +29,8 @@ sections:
       buttons:
         - name: All
           tag: '*'
-      #  - name: Deep Learning
-      #    tag: Deep Learning
+        - name: AI
+          tag: AI
       #  - name: Other
       #    tag: Demo
     design:
