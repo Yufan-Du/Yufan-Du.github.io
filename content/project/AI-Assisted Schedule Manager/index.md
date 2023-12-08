@@ -7,8 +7,8 @@ summary:
 tags:
   - Artificial Intelligence
 
-date: '2023-06-01T15:00:00Z'
-publishDate: '2023-06-01T15:00:00Z'
+date: '2023-6-1T15:00:00Z'
+publishDate: '2023-6-1T15:00:00Z'
 
 # Optional external URL for project (replaces project detail page).
 #external_link: https://example.org
