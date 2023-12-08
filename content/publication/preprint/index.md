@@ -10,11 +10,11 @@ authors:
 - Runsheng Wang
 - Ru Huang
 
-date: "2023-11-20T00:00:00Z"
+date: "2023-11-20T15:00:00Z"
 doi: ""
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2024-02-26T00:00:00Z"
+publishDate: "2024-02-26T15:00:00Z"
 
 # Publication type.
 # Accepts a single type but formatted as a YAML list (for Hugo requirements).
@@ -49,10 +49,10 @@ featured: false
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
-#image:
-#  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/s9CC2SKySJM)'
-#  focal_point: ""
-#  preview_only: false
+image:
+  caption: 'Algo Demo'
+  focal_point: ""
+  preview_only: false
 
 # Associated Projects (optional).
 #   Associate this publication with one or more of your projects.

@@ -45,18 +45,14 @@ sections:
   - block: collection
     id: featured
     content:
-      title: Recent Publications
-      text: |-
-        {{% callout note %}}
-        Quickly discover relevant content by [filtering publications](./publication/).
-        {{% /callout %}}
+      title: Featured Publications
       filters:
         folders:
           - publication
-        exclude_featured: true
+        featured_only: true
     design:
       columns: '2'
-      view: citation
+      view: card
 
   - block: contact
     id: contact
