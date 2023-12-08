@@ -2,18 +2,11 @@
 title: "PowPrediCT: Cross-Stage Power Prediction with Circuit-Transformation-Aware Learning"
 authors:
 - admin
-- Zizheng Guo
-- Xun Jiang
-- Zhuomin Chai
-- Yuxiang Zhao
-- Yibo Lin
-- Runsheng Wang
-- Ru Huang
 date: "2023-11-20T00:00:00Z"
 doi: ""
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2024-02-26T00:00:00Z"
+publishDate: "2023-11-20T00:00:00Z"
 
 # Publication type.
 # Accepts a single type but formatted as a YAML list (for Hugo requirements).
@@ -69,7 +62,7 @@ slides: example
 ---
 
 {{% callout note %}}
-Markdown
+Create your slides in Markdown - click the *Slides* button to check out the example.
 {{% /callout %}}
 
-Rich formatting such as including [code, math, and images](https://docs.hugoblox.com/content/writing-markdown-latex/).
+Add the publication's **full text** or **supplementary notes** here. You can use rich formatting such as including [code, math, and images](https://docs.hugoblox.com/content/writing-markdown-latex/).
