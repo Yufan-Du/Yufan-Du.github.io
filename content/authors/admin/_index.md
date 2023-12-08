@@ -118,6 +118,6 @@ social:
 highlight_name: true
 ---
 
- I am a student at Peking University, majoring in Applied Physics and Computer Science. My research interests include ML for EDA, hardware-software co-design and GPU acceleration.
+ I am a student at Peking University, majoring in Applied Physics and Computer Science.
 
 {style="text-align: justify;"}s
