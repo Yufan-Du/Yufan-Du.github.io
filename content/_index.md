@@ -43,16 +43,19 @@ sections:
       flip_alt_rows: false
 
   - block: collection
-    id: featured
     content:
-      title: Featured Publications
+      title: Recent Publications
+      #text: |-
+      #  {{% callout note %}}
+      #  Quickly discover relevant content by [filtering publications](./publication/).
+      #  {{% /callout %}}
       filters:
         folders:
           - publication
-        featured_only: true
+        exclude_featured: true
     design:
       columns: '2'
-      view: card
+      view: citation
 
   - block: contact
     id: contact
