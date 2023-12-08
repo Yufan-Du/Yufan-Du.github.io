@@ -62,7 +62,7 @@ sections:
     content:
       title: Contact
       subtitle:
-      email: nbsdyf@hotmail.com/nbsdyf@stu.pku.edu.cn
+      email: nbsdyf@hotmail.com / nbsdyf@stu.pku.edu.cn
     design:
       columns: '2'
 
