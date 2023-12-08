@@ -13,7 +13,7 @@ date: "2024-2-26T00:00:00Z"
 doi: ""
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2023-11-20T00:00:00Z"
+#publishDate: "2023-11-20T00:00:00Z"
 
 # Publication type.
 # Accepts a single type but formatted as a YAML list (for Hugo requirements).
@@ -22,7 +22,7 @@ publication_types: ["conference"]
 
 # Publication name and optional abbreviated publication name.
 publication: "Submitted to Design Automation Conference (under review)"
-publication_short: "DAC24"
+publication_short: "DAC24 (under review)"
 
 abstract: Accurate and efficient power analysis at early VLSI design stages is critical for effective power optimization. It is a promising yet challenging task to model the circuit power at early design stages, especially during placement with the clock tree and final signal routing unavailable. Additionally, optimization-induced circuit transformations like circuit restructuring and gate sizing can invalidatefine-grained power supervision. Addressing these difficulties, we introduce the first circuit-transformation-aware power prediction model at placement stage with robust generalization capabilities. Our technology includes a dedicated clock tree model and an innovative train-and-calibrate scheme that effectively integrates topological and layout features. Compared to the cutting-edge commercial IC engine Innovus, we have significantly reduced the cross-stage power analysis error between placement and detailed routing.
 
