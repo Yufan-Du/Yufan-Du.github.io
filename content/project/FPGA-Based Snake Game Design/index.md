@@ -1,15 +1,12 @@
 ---
 title: FPGA-Based Snake Game
-summary: 
-- Developed a real-time control mechanism for the Snake game using camera-based hand movement detection.
-- Enhanced player interaction by innovative human-computer interface and provided insights for IoT edge device development.
+summary: We deployed a computer vision algorithm and the classic Snake game on a resource-limited FPGA platform, optimizing resource usage. We Introduced a 3D human-computer interface to improve player engagement and provided valuable insights for IoT edge device development.
 
 tags:
   - Artificial Intelligence
   - Hardware Design
 
-date: '2020-6-20'
-publishDate: '2023-6-20T15:00:00Z'
+date: '2023-04-01'
 
 # Optional external URL for project (replaces project detail page).
 external_link: ''
@@ -31,7 +28,10 @@ image:
 #slides: example
 ---
 
-This project integrates FPGA Design, Computer Vision, Computer Graphics, Human-Computer Interaction (HCI), and Hardware Description Language (HDL) Coding. 
-I innovated a novel control mechanism for the classic Snake game, utilizing camera-based detection of player hand movements to enable real-time control of the game character. This unique approach goes beyond conventional button or 2-D touchscreen inputs that limit the freedom of users, providing a more immersive and interactive gaming experience and allowing players to interact in a more natural and intuitive manner
-Additionally, the project's focus on hardware-centric design offers valuable insights for the development of Internet of Things (IoT) edge devices, highlighting its broader application potential.
+We innovated a novel control mechanism for the classic Snake game, utilizing camera-based detection of player hand movements to enable real-time control of the game character. This unique approach goes beyond conventional button or 2D touchscreen inputs that limit the freedom of users, providing a more immersive and interactive gaming experience and allowing players to interact in a more natural and intuitive manner
+
+For this project, we deployed the entire game on an FPGA with limited resources, typical of devices used for educational purposes. This presented substantial optimization challenges, requiring us to meticulously optimize from both hardware and software perspectives.
+
+The project's focus offers valuable insights for the development of Internet of Things (IoT) edge devices, highlighting its broader application potential.
+
 
