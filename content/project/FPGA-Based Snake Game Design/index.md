@@ -1,6 +1,6 @@
 ---
 title: FPGA-Based Snake Game
-summary: We deployed a computer vision algorithm and the classic Snake game on a resource-limited FPGA platform, optimizing resource usage. We Introduced a 3D human-computer interface to improve player engagement and provided valuable insights for IoT edge device development.
+summary: We deployed a computer vision algorithm and the classic snake game on a resource-limited FPGA platform, optimizing resource usage. We Introduced a 3D human-computer interface to improve player engagement and provided valuable insights for IoT edge device development.
 
 tags:
   - Artificial Intelligence
