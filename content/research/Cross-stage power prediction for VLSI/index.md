@@ -1,7 +1,6 @@
 ---
 title: Cross-stage power prediction for the VLSI circuits
-summary: 
-An innovative VLSI circuit power prediction framework that integrates cross-stage circuit-transformation-aware multi-modality learning.
+summary: An innovative VLSI circuit power prediction framework that integrates cross-stage circuit-transformation-aware multi-modality learning.
 
 tags:
 

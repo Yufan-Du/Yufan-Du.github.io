@@ -1,7 +1,6 @@
 ---
 title: Gate-level Circuit Simulation
-summary: 
-Accelerate gate-level circuit simulations with CUDA programming.
+summary: Accelerate gate-level circuit simulations with CUDA programming.
 
 tags:
 
