@@ -10,7 +10,7 @@ date: '2023-06-01'
 external_link: ''
 
 image:
-  caption: A demo gif
+  caption: A demo.
   focal_point: Smart
 
 #url_code: ''
