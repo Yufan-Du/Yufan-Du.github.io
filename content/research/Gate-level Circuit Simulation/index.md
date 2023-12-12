@@ -10,9 +10,9 @@ date: '2023-12-01'
 # Optional external URL for project (replaces project detail page).
 external_link: ''
 
-#image:
-#  caption: A demo gif
-#  focal_point: Smart
+image:
+  caption: A demo.
+  focal_point: Smart
 
 #url_code: ''
 #url_pdf: ''
