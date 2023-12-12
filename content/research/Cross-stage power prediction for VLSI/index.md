@@ -4,7 +4,7 @@ summary: An innovative VLSI circuit power prediction framework that integrates c
 
 tags:
 
-date: '2023-11-20'
+date: '2023-06-01'
 
 # Optional external URL for project (replaces project detail page).
 external_link: ''
