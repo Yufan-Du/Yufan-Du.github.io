@@ -5,7 +5,7 @@ summary: Accelerate gate-level circuit simulations with CUDA programming.
 tags:
 
 
-date: '2023/12/01'
+date: 2023-12-01
 
 # Optional external URL for project (replaces project detail page).
 external_link: ''
