@@ -11,7 +11,23 @@ sections:
       title: Biography
       # Choose a user profile to display (a folder name within `content/authors/`)
       username: admin
-  
+      
+  - block: collection
+    id: featured
+    content:
+      title: Recent Publications
+      #text: |-
+      #  {{% callout note %}}
+      #  Quickly discover relevant content by [filtering publications](./publication/).
+      #  {{% /callout %}}
+      filters:
+        folders:
+          - publication
+        exclude_featured: true
+    design:
+      columns: '2'
+      view: citation
+
   - block: portfolio
     id: projects
     content:
@@ -68,21 +84,7 @@ sections:
       # For Showcase view, flip alternate rows?
       flip_alt_rows: false
 
-  - block: collection
-    id: featured
-    content:
-      title: Recent Publications
-      #text: |-
-      #  {{% callout note %}}
-      #  Quickly discover relevant content by [filtering publications](./publication/).
-      #  {{% /callout %}}
-      filters:
-        folders:
-          - publication
-        exclude_featured: true
-    design:
-      columns: '2'
-      view: citation
+
 
   - block: contact
     id: contact
@@ -92,7 +94,7 @@ sections:
       #text: |-
       #  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mi diam, venenatis ut magna et, vehicula efficitur enim.
       # Contact (add or remove contact options as necessary)
-      email: nbsdyf@hotmail.com
+      email: nbsdyf at hotmail dot com
       # Choose a map provider in `params.yaml` to show a map from these coordinates
       #coordinates:
       #  latitude: '37.4275'

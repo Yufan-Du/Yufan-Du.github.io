@@ -1,14 +1,19 @@
 ---
 title: "PowPrediCT: Cross-Stage Power Prediction with Circuit-Transformation-Aware Learning"
 authors:
-- admin †
-- Zizheng Guo †
+- admin
+- Zizheng Guo
 - Xun Jiang
 - Zhuomin Chai
 - Yuxiang Zhao
 - Yibo Lin
 - Runsheng Wang
 - Ru Huang
+
+author_notes:
+- "Equal contribution"
+- "Equal contribution"
+
 date: "2024-02-26T00:00:00Z"
 doi: "10.1145/3649329.3657349"
 
