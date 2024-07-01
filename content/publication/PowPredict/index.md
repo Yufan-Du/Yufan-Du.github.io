@@ -9,11 +9,11 @@ authors:
 - Yibo Lin
 - Runsheng Wang
 - Ru Huang
-date: "2024-2-26T00:00:00Z"
+date: "2024-02-26T00:00:00Z"
 doi: ""
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2024-1-20T"
+publishDate: "2024-01-20T"
 
 # Publication type.
 # Accepts a single type but formatted as a YAML list (for Hugo requirements).
