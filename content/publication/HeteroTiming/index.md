@@ -10,11 +10,11 @@ authors:
 - Yibo Lin
 - Runsheng Wang
 - Ru Huang
-date: "2024-2-26T00:00:00Z"
+date: "2024-2-26T"
 doi: ""
 
 # Schedule page publish date (NOT publication's date).
-#publishDate: "2023-11-20T00:00:00Z"
+publishDate: "2024-6-20T"
 
 # Publication type.
 # Accepts a single type but formatted as a YAML list (for Hugo requirements).
@@ -25,7 +25,21 @@ publication_types: ["conference"]
 publication: "International Conference on Computer-Aided Design (Accepted)"
 publication_short: "ICCAD24 (Accepted)"
 
-abstract: 
+abstract: Static timing analysis (STA) for large-scale modern circuits requires
+extensive handling of false paths, multi-cycle paths, and other types
+of path exceptions. Despite the linear nature of timing propagation,
+we show that exception-aware STA is NP-hard and thus requires a
+long runtime to solve using conventional CPU-based methods. To
+overcome this runtime challenge, we propose a general CPU-GPU
+heterogeneous algorithm, HeteroExcept, that can handle common
+types of path exceptions and efficiently generate an accurate path
+report. Our algorithm targets runtime efficiency at the scale of thousands
+of exception rules and millions of circuit elements. To further
+improve the performance, we optimize our GPU implementation
+by introducing a cost-effective data exchange strategy between
+CPU and GPU. Experimental results demonstrate up to 6.84× and
+12.93× speed-up compared to industrial timers, PrimeTime and
+OpenSTA.
 
 # Summary. An optional shortened abstract.
 #summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.

@@ -1,5 +1,5 @@
 ---
-title: "PowPrediCT: Cross-Stage Power Prediction with Circuit-Transformation-Aware Learning"
+title: "Fusion of Global Placement and Gate Sizing with Differentiable Optimization"
 authors:
 - admin
 - Zizheng Guo
@@ -10,7 +10,7 @@ date: "2024-2-26T"
 doi: ""
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2023-11-20T00:00:00Z"
+publishDate: "2024-6-20T"
 
 # Publication type.
 # Accepts a single type but formatted as a YAML list (for Hugo requirements).
