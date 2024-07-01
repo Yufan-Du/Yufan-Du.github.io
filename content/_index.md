@@ -11,7 +11,7 @@ sections:
       title: Biography
       # Choose a user profile to display (a folder name within `content/authors/`)
       username: admin
-      
+
   - block: collection
     id: featured
     content:
@@ -58,31 +58,31 @@ sections:
       # For Showcase view, flip alternate rows?
       flip_alt_rows: false
     
-  - block: portfolio
-    id: researches
-    content:
-      title: Researches
-      filters:
-        folders:
-          - research
+#  - block: portfolio
+#    id: researches
+#    content:
+#      title: Researches
+#      filters:
+#        folders:
+#          - research
       # Default filter index (e.g. 0 corresponds to the first `filter_button` instance below).
-      default_button_index: 0
+#      default_button_index: 0
       # Filter toolbar (optional).
       # Add or remove as many filters (`filter_button` instances) as you like.
       # To show all items, set `tag` to "*".
       # To filter by a specific tag, set `tag` to an existing tag name.
       # To remove the toolbar, delete the entire `filter_button` block.
-      buttons:
-        - name: All
-          tag: '*'
+#      buttons:
+#        - name: All
+#          tag: '*'
       #  - name: Other
       #    tag: Demo
-    design:
+#    design:
       # Choose how many columns the section has. Valid values: '1' or '2'.
-      columns: '1'
-      view: showcase
+#      columns: '1'
+#      view: showcase
       # For Showcase view, flip alternate rows?
-      flip_alt_rows: false
+#      flip_alt_rows: false
 
 
 
