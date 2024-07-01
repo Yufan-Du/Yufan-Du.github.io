@@ -6,7 +6,7 @@ tags:
   - Artificial Intelligence
   - Hardware Design
 
-date: '2023-04-01'
+date: "2023-04-01T00:00:00Z"
 
 # Optional external URL for project (replaces project detail page).
 external_link: ''

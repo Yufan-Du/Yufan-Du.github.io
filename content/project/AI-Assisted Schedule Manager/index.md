@@ -5,7 +5,7 @@ summary: We developed a cross-platform scheduling application integrated with AI
 tags:
   - Artificial Intelligence
 
-date: '2023-6-1'
+date: "2023-06-01T00:00:00Z"
 
 # Optional external URL for project (replaces project detail page).
 #external_link: https://example.org
