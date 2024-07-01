@@ -35,10 +35,10 @@ tags:
 - GNNs
 featured: false
 
-#links:
+links:
 #- name: Custom Link
 #  url: http://example.org
-#url_pdf: http://arxiv.org/pdf/1512.04133v1
+url_pdf: 227_Camera_Ready_Paper.pdf
 #url_code: 'https://github.com/HugoBlox/hugo-blox-builder'
 #url_dataset: '#'
 #url_poster: '#'
