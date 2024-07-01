@@ -38,7 +38,8 @@ featured: false
 links:
 #- name: Custom Link
 #  url: http://example.org
-url_pdf: 227_Camera_Ready_Paper.pdf
+url_pdf: uploads/227_Camera_Ready_Paper.pdf
+url_doi: https://doi.org/10.1145/3649329.3657349
 #url_code: 'https://github.com/HugoBlox/hugo-blox-builder'
 #url_dataset: '#'
 #url_poster: '#'
