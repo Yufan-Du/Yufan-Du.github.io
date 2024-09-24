@@ -19,7 +19,7 @@ publication_types: ["conference"]
 
 # Publication name and optional abbreviated publication name.
 publication: "International Conference on ComputerAided Design (Accepted)"
-publication_short: "ICCAD24 (Accepted)"
+publication_short: "ICCAD24 (Accepted | Best Paper Award Nomination)"
 
 abstract: Gate sizing is critical in VLSI design because it significantly influ- ences final design quality. Traditional design flows typically treat gate sizing as a separate step due to its discreteness nature. How- ever, this approach not only undermines the optimization efforts of earlier stages like placement and routing, but also restricts the exploration space for gate sizing. To address these challenges, we introduce an innovative design flow that fuses gate sizing with the earlier global placement stage. Our method employs differentiable timing and leakage power objectives and leverages GPU-accelerated computation to enhance design quality directly and efficiently. Our experimental results demonstrate significant improvements in tim- ing and power metrics, with an average improvement of 77.1% in total negative slack (TNS) and 43.5% in worst negative slack (WNS), and meanwhile achieving a reduction in leakage power consump- tion by 1% in comparison with one of the most popular design tools, OpenROAD. Our method can accelerate the design process by up to 7×.
 
