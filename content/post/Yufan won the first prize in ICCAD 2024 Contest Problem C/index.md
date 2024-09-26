@@ -1,6 +1,6 @@
 ---
 title: Yufan won the first prize in ICCAD 2024 Contest Problem C
-date: '2024-09-30'
+date: '2024-09-25'
 summary: Yufan won the first prize in ICCAD 2024 Contest Problem C!
 ---
 
