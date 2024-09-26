@@ -29,6 +29,14 @@ sections:
       view: citation
 
   - block: portfolio
+    id: posts
+    content:
+     title: Posts
+      filters:
+        folders:
+          - post
+
+  - block: portfolio
     id: projects
     content:
       title: Projects
