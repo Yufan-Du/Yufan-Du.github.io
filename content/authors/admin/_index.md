@@ -29,11 +29,10 @@ bio: My research interests include ML for EDA, hardware design and GPU accelarat
 
 # Interests to show in About widget
 interests:
-  - Artificial Intelligence (AI)
-  - Electronic Design Automation (EDA)
   - Hardware-software Co-design
+  - Artificial Intelligence (AI)
   - GPU accelaration
-
+  - Electronic Design Automation (EDA)
 # Education to show in About widget
 education:
   courses:
