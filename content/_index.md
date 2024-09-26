@@ -31,10 +31,11 @@ sections:
   - block: portfolio
     id: posts
     content:
-     title: Posts
+      title: Posts
       filters:
         folders:
           - post
+
 
   - block: portfolio
     id: projects
