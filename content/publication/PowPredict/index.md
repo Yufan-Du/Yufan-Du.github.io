@@ -64,7 +64,13 @@ url_cite: "@inproceedings{powerpreddac24,
 #url_poster: '#'
 #url_project: ''
 #url_slides: ''
-#url_source: '#'
+url_source: '@inproceedings{powerpreddac24,
+ author = {Du, Yufan and Guo, Zizheng and Jiang, Xun and Chai, Zhuomin and Zhao, Yuxiang and Lin, Yibo and Wang, Runsheng and Huang, Ru},
+ booktitle = {Proceedings of the 61st Annual Design Automation Conference 2024},
+ organization = {ACM},
+ title = {PowPrediCT: Cross-Stage Power Prediction with Circuit-Transformation-Aware Learning},
+ year = {2024}
+}'
 #url_video: '#'
 
 # Featured image
