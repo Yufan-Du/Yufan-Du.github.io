@@ -52,6 +52,13 @@ links:
 #  url: http://example.org
 url_pdf: uploads/227_Camera_Ready_Paper.pdf
 url_doi: https://doi.org/10.1145/3649329.3657349
+url_cite: "@inproceedings{powerpreddac24,
+ author = {Du, Yufan and Guo, Zizheng and Jiang, Xun and Chai, Zhuomin and Zhao, Yuxiang and Lin, Yibo and Wang, Runsheng and Huang, Ru},
+ booktitle = {Proceedings of the 61st Annual Design Automation Conference 2024},
+ organization = {ACM},
+ title = {PowPrediCT: Cross-Stage Power Prediction with Circuit-Transformation-Aware Learning},
+ year = {2024}
+}"
 #url_code: 'https://github.com/HugoBlox/hugo-blox-builder'
 #url_dataset: '#'
 #url_poster: '#'
@@ -83,4 +90,3 @@ projects:
 #slides: example
 ---
 
-More Rich formatting such as including [code, math, and images](https://docs.hugoblox.com/content/writing-markdown-latex/) will be included here.
