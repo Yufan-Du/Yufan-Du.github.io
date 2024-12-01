@@ -10,9 +10,15 @@ authors:
 - Yibo Lin
 - Runsheng Wang
 - Ru Huang
+author_notes:
+- "Equal contribution"
+- "Equal contribution"
 date: '2024-01-01'
 publishDate: '2024-12-01T05:42:55.821728Z'
 publication_types:
 - paper-conference
 publication: '*Proceedings of the 2024 Design Automation Conference (DAC)*'
+links:
+url_pdf: uploads/227_Camera_Ready_Paper.pdf
+url_doi: https://doi.org/10.1145/3649329.3657349
 ---
