@@ -16,6 +16,13 @@ author_notes:
 
 date: "2024-02-26T00:00:00Z"
 doi: "10.1145/3649329.3657349"
+cite: "@inproceedings{powerpreddac24,
+ author = {Du, Yufan and Guo, Zizheng and Jiang, Xun and Chai, Zhuomin and Zhao, Yuxiang and Lin, Yibo and Wang, Runsheng and Huang, Ru},
+ booktitle = {Proceedings of the 61st Annual Design Automation Conference 2024},
+ organization = {ACM},
+ title = {PowPrediCT: Cross-Stage Power Prediction with Circuit-Transformation-Aware Learning},
+ year = {2024}
+}"
 
 # Schedule page publish date (NOT publication's date).
 publishDate: "2024-01-20T"
