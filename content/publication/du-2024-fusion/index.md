@@ -1,7 +1,7 @@
 ---
 title: Fusion of Global Placement and Gate Sizing with Differentiable Optimization
 authors:
-- Yufan Du
+- admin
 - Zizheng Guo
 - Yibo Lin
 - Runsheng Wang

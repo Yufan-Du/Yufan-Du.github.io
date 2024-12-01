@@ -7,7 +7,7 @@ authors:
 - Wuxi Li
 - Tsung-Wei Huang
 - Xizhe Shi
-- Yufan Du
+- admin
 - Yibo Lin
 - Runsheng Wang
 - Ru Huang

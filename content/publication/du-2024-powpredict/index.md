@@ -2,7 +2,7 @@
 title: 'PowPrediCT: Cross-Stage Power Prediction with Circuit-Transformation-Aware
   Learning'
 authors:
-- Yufan Du
+- admin
 - Zizheng Guo
 - Xun Jiang
 - Zhuomin Chai
