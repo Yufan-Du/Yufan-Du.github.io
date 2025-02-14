@@ -28,29 +28,29 @@ sections:
       columns: '2'
       view: citation
 
-  - block: portfolio
-    id: posts
-    content:
-      title: Posts
-      filters:
-        folders:
-          - post
-    design:
+#  - block: portfolio
+#    id: posts
+#    content:
+#      title: Posts
+#      filters:
+#        folders:
+#          - post
+#    design:
       # Choose how many columns the section has. Valid values: '1' or '2'.
-      columns: '1'
-      view: showcase
+#      columns: '1'
+#      view: showcase
       # For Showcase view, flip alternate rows?
-      flip_alt_rows: false
+#      flip_alt_rows: false
 
-  - block: portfolio
-    id: projects
-    content:
-      title: Projects
-      filters:
-        folders:
-          - project
+#  - block: portfolio
+#    id: projects
+#    content:
+#      title: Projects
+#      filters:
+#        folders:
+#          - project
       # Default filter index (e.g. 0 corresponds to the first `filter_button` instance below).
-      default_button_index: 0
+#      default_button_index: 0
       # Filter toolbar (optional).
       # Add or remove as many filters (`filter_button` instances) as you like.
       # To show all items, set `tag` to "*".
@@ -66,12 +66,12 @@ sections:
       #    tag: Hardware Design
       #  - name: Other
       #    tag: Demo
-    design:
+#    design:
       # Choose how many columns the section has. Valid values: '1' or '2'.
-      columns: '1'
-      view: showcase
+#      columns: '1'
+#      view: showcase
       # For Showcase view, flip alternate rows?
-      flip_alt_rows: false
+#      flip_alt_rows: false
     
 #  - block: portfolio
 #    id: researches
