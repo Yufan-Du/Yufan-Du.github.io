@@ -26,11 +26,14 @@
           {{- end -}}
         </span>.
 
-        {{/* --- THIS IS THE NEW, ROBUST TAG CODE --- */}}
+        {{/* --- THIS IS THE CORRECTED TAG CODE --- */}}
         {{ with $item.Params.tags }}
         <div class="pub-tags">
           {{ range . }}
-            {{ $tag_link := (urls.Parse .).Path | lower | printf "tags/%s/" | site.BaseURL }}
+            {{/* Create the relative URL path, e.g., "tags/best-paper-nominee" */}}
+            {{ $tag_path := printf "tags/%s" (. | urlize) }}
+            {{/* Create the full, absolute URL */}}
+            {{ $tag_link := absURL $tag_path }}
             <a class="badge badge-light" href="{{ $tag_link }}">{{ . }}</a>
           {{ end }}
         </div>
