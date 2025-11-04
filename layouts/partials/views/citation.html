@@ -1,0 +1,50 @@
+{{/* Hugo Blox - Citation View */}}
+{{/* This file overrides the theme's default citation view to add the 'award' badge */}}
+
+{{ $item := .item }}
+{{ $item_type := $item.Type }}
+
+<div class="pub-list-item" style="margin-bottom: 1rem">
+  <div class="row">
+    <div class="col-auto">
+      <i class="fa-li fa-solid fa-file-lines" aria-hidden="true"></i>
+    </div>
+    <div class="col">
+
+      {{/* Title */}}
+      <div class="pub-title">
+        <a href="{{$item.RelPermalink}}">{{ $item.Title | markdownify | emojify }}</a>
+      </div>
+
+      {{/* Authors */}}
+      <div class="pub-authors">
+        {{ partial "page_metadata_authors" $item }}
+      </div>
+
+      <div class="pub-details">
+        {{/* Publication details */}}
+        <span class="pub-publication">
+          {{- with $item.Params.publication -}}
+            {{- . | markdownify | emojify -}}
+          {{- end -}}
+        </span>,
+
+        {{/* Publication date */}}
+        <span class="pub-date">
+          {{- $item.Date.Format (site.Params.date_format | default "January 2006") -}}
+        </span>.
+
+        {{/* Award Badge - THIS IS THE NEWLY ADDED CODE */}}
+        {{ with .Params.award }}
+          <span class="badge badge-award">{{ . | markdownify | emojify }}</span>
+        {{ end }}
+      </div>
+
+      {{/* Links */}}
+      <div class="pub-links">
+        {{ partial "page_links" (dict "page" $item "is_list" 1) }}
+      </div>
+
+    </div>
+  </div>
+</div>

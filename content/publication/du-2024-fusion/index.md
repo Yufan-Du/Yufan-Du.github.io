@@ -12,7 +12,7 @@ publication_types:
 - paper-conference
 publication: '*Proceedings of the 2024 IEEE/ACM International Conference on Computer-Aided
   Design (ICCAD)*'
-tags: Best Paper Nominee
+award: Best Paper Nominee
 
 doi: "10.1145/3676536.3676670"
 
