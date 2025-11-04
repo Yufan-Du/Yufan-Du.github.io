@@ -1,9 +1,4 @@
-{{/* Hugo Blox - Citation View */}}
-{{/* This file overrides the theme's default citation view to add the 'award' badge */}}
-
 {{ $item := .item }}
-{{ $item_type := $item.Type }}
-
 <div class="pub-list-item" style="margin-bottom: 1rem">
   <div class="row">
     <div class="col-auto">
@@ -19,13 +14,9 @@
       {{/* Authors and Year */}}
       <div class="pub-authors">
         {{ partial "page_metadata_authors" $item }}
-        
-        {{/* --- MOVED YEAR INSIDE --- */}}
-        {{/* This adds (2025) after the author list */}}
+        {{/* This adds (2025) to the end of the author line */}}
         <span class="pub-year">({{ $item.Date.Format "2006" }})</span>
       </div>
-
-      {{/* --- REMOVED YEAR FROM HERE --- */}}
 
       <div class="pub-details">
         {{/* Publication details */}}
@@ -35,10 +26,16 @@
           {{- end -}}
         </span>.
 
-        {{/* Award Badge (Fixed to use $item) */}}
-        {{ with $item.Params.award }}
-          <span class="badge badge-award">{{ . | markdownify | emojify }}</span>
+        {{/* --- THIS IS THE NEW, ROBUST TAG CODE --- */}}
+        {{ with $item.Params.tags }}
+        <div class="pub-tags">
+          {{ range . }}
+            {{ $tag_link := (urls.Parse .).Path | lower | printf "tags/%s/" | site.BaseURL }}
+            <a class="badge badge-light" href="{{ $tag_link }}">{{ . }}</a>
+          {{ end }}
+        </div>
         {{ end }}
+        
       </div>
 
       {{/* Links */}}
