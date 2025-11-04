@@ -12,4 +12,7 @@ publication_types:
 - paper-conference
 publication: '*Proceedings of the 2024 IEEE/ACM International Conference on Computer-Aided
   Design (ICCAD)*'
+links:
+url_pdf: uploads/fusionsizericcad-24.pdf
+url_doi: https://doi.org/10.1145/3676536.3676670
 ---

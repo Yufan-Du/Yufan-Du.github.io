@@ -10,9 +10,6 @@ authors:
 - Yibo Lin
 - Runsheng Wang
 - Ru Huang
-author_notes:
-- "Equal contribution"
-- "Equal contribution"
 date: '2024-01-01'
 publishDate: '2024-12-01T05:42:55.821728Z'
 publication_types:

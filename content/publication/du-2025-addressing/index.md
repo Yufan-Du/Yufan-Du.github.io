@@ -2,7 +2,7 @@
 title: 'Addressing Continuity and Expressivity Limitations in Differentiable Physical
   Optimization: A Case Study in Gate Sizing'
 authors:
-- Yufan Du
+- admin
 - Zizheng Guo
 - Yang Hsu
 - Zhili Xiong
@@ -15,4 +15,7 @@ publishDate: '2025-11-04T05:24:40.602226Z'
 publication_types:
 - paper-conference
 publication: '*2025 International Symposium of Electronics Design Automation (ISEDA)*'
+links:
+url_pdf: uploads/ISEDA25_DiffSizing.pdf
+url_doi: https://doi.org/10.1109/ISEDA65950.2025.11100319
 ---

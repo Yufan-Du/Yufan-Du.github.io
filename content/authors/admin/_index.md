@@ -17,28 +17,36 @@ status:
 superuser: true
 
 # Role/position/tagline
-role: Student of Peking University
+role: PhD Student
 
 # Organizations/Affiliations to show in About widget
 organizations:
-  - name: Peking University
-    url: https://pku.edu.cn/
+  - name: UCLA
+    url: https://ucla.edu/
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include ML for EDA, hardware design and GPU accelaration.
+bio: My research focuses on differentiable optimization, AI4EDA, software and hardware co-design, and compiler design.
 
 # Interests to show in About widget
 interests:
   - Hardware-software Co-design
-  - Artificial Intelligence (AI)
+  - Differentiable optimization
   - GPU accelaration
   - Electronic Design Automation (EDA)
+  - ML-specific Compiler Design
 # Education to show in About widget
 education:
   courses:
-    - course: BSc in Applied Physics and Computer Science dual degree
+    - course: BSc in Applied Physics
       institution: Peking University
-      year: 2021 - Present
+      year: 2021 - 2025
+    - course: BSc in Computer Science
+      institution: Peking University
+      year: 2021 - 2025
+    - course: PhD in Computer Science
+      institution: University of California, Los Angeles
+      year: 2025 - Present
+
 
 # Skills
 # For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
@@ -90,7 +98,7 @@ education:
 social:
   - icon: envelope
     icon_pack: fas
-    link: 'mailto:nbsdyf@stu.pku.edu.cn'
+    link: 'mailto:nbsdyf@hotmail.com'
 #  - icon: twitter
 #    icon_pack: fab
 #    link: https://twitter.com/GeorgeCushen
@@ -109,9 +117,9 @@ social:
   # Link to a PDF of your resume/CV.
   # To use: copy your resume to `static/uploads/resume.pdf`, enable `ai` icons in `params.yaml`,
   # and uncomment the lines below.
-  - icon: cv
-    icon_pack: ai
-    link: uploads/cv.pdf
+  #- icon: cv
+  #  icon_pack: ai
+  #  link: uploads/cv.pdf
 
 # Highlight the author in author lists? (true/false)
 highlight_name: true

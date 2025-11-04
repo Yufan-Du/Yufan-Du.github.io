@@ -1,7 +1,7 @@
 ---
 title: Differentiable Physical Optimization
 authors:
-- Yufan Du
+- admin
 - Zizheng Guo
 - Runsheng Wang
 - Yibo Lin
@@ -11,4 +11,6 @@ publication_types:
 - paper-conference
 publication: '*Proceedings of the 2025 IEEE/ACM International Conference on Computer-Aided
   Design (ICCAD)*'
+links:
+url_pdf: uploads/DiffPhyOpt_iccad25.pdf
 ---
