@@ -1,3 +1,4 @@
+
 {{/* Hugo Blox - Citation View */}}
 {{/* This file overrides the theme's default citation view to add the 'award' badge */}}
 
@@ -21,20 +22,25 @@
         {{ partial "page_metadata_authors" $item }}
       </div>
 
+      {{/* --- NEWLY ADDED YEAR --- */}}
+      {{/* This adds (2025) after the author list */}}
+      <span class="pub-year">({{ $item.Date.Format "2006" }})</span>
+
       <div class="pub-details">
         {{/* Publication details */}}
         <span class="pub-publication">
           {{- with $item.Params.publication -}}
             {{- . | markdownify | emojify -}}
           {{- end -}}
-        </span>,
-
-        {{/* Publication date */}}
-        <span class="pub-date">
-          {{- $item.Date.Format (site.Params.date_format | default "January 2006") -}}
         </span>.
 
-        {{/* Award Badge - THIS IS THE NEWLY ADDED CODE */}}
+        {{/* --- REMOVED OLD DATE --- */}}
+        {{/* <span class="pub-date">
+            {{- $item.Date.Format (site.Params.date_format | default "January 2006") -}}
+          </span>.
+        */}}
+
+        {{/* Award Badge (Fixed to use $item) */}}
         {{ with $item.Params.award }}
           <span class="badge badge-award">{{ . | markdownify | emojify }}</span>
         {{ end }}
