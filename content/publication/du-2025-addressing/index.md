@@ -16,6 +16,8 @@ publication_types:
 - paper-conference
 publication: '*2025 International Symposium of Electronics Design Automation (ISEDA)*'
 
+award: Honorable Mention Paper Award
+
 doi: "10.1109/ISEDA65950.2025.11100319"
 
 links:
