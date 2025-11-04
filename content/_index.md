@@ -28,19 +28,19 @@ sections:
       columns: '2'
       view: citation
 
-#  - block: portfolio
-#    id: posts
-#    content:
-#      title: Posts
-#      filters:
-#        folders:
-#          - post
-#    design:
+  - block: portfolio
+    id: posts
+    content:
+      title: Posts
+      filters:
+        folders:
+          - post
+    design:
       # Choose how many columns the section has. Valid values: '1' or '2'.
-#      columns: '1'
-#      view: showcase
+      columns: '1'
+      view: showcase
       # For Showcase view, flip alternate rows?
-#      flip_alt_rows: false
+      flip_alt_rows: false
 
 #  - block: portfolio
 #    id: projects

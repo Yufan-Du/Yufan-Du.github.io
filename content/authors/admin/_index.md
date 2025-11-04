@@ -125,6 +125,6 @@ social:
 highlight_name: true
 ---
 
- I am a student at Peking University, majoring in Applied Physics and Computer Science.
+ I am a PhD student at UCLA, majoring in Computer Science.
 
 {style="text-align: justify;"}s
