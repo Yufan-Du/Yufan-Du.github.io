@@ -1,6 +1,8 @@
 <style>
-  /* Bolds your name (admin) in the publication list */
-  .pub-authors .author-highlight {
-    font-weight: 600;
+  /* * Bolds your name (admin) in the publication list.
+   * This directly targets the link to your author profile.
+   */
+  .pub-authors a[href*="/authors/admin"] {
+    font-weight: 600 !important;
   }
 </style>
