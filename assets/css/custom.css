@@ -1,0 +1,55 @@
+/*
+ * ======================================================
+ * CUSTOM CSS FOR YUFAN DU'S WEBSITE
+ * ======================================================
+ */
+
+/* * FIX 1: STYLE THE AWARD BADGE
+ * This makes your "Honorable Mention" span
+ * actually look like a grey badge.
+ */
+.badge-award {
+  display: inline-block;
+  padding: 0.3em 0.5em; /* Controls the size */
+  font-size: 0.75rem;   /* Smaller font for the badge */
+  font-weight: 600;     /* Bold text */
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle; /* Aligns with text */
+  border-radius: 0.25rem; /* Rounded corners */
+  color: #fff;           /* White text */
+  background-color: #6c757d; /* Standard grey badge color */
+  margin-left: 6px;     /* Adds space between it and the date */
+}
+
+/* * FIX 2: BOLD YOUR (ADMIN) AUTHOR NAME
+ * This finds the author link for 'admin' and makes it bold.
+ */
+.pub-authors .author-highlight {
+  font-weight: 600; /* Bolds your name */
+  color: #212529;   /* Makes it a darker black */
+}
+
+/*
+ * FIX 3: CREATE VISUAL HIERARCHY
+ * This makes the author list and publication details
+ * look different from the main title.
+ */
+
+/* Style the author list */
+.pub-authors {
+  font-size: 0.9rem; /* Slightly smaller font */
+  color: #555;      /* Greyer text */
+}
+
+/* Style the publication details (conference, date) */
+.pub-details {
+  font-size: 0.9rem; /* Slightly smaller font */
+  color: #666;      /* Lighter grey text */
+}
+
+/* Make the conference/journal title italic */
+.pub-details .pub-publication {
+  font-style: italic;
+}

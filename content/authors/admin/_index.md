@@ -125,8 +125,8 @@ social:
 highlight_name: true
 ---
 
-I am a first year PhD student at [UCLA](https://ucla.edu/), majoring in Computer Science. I'm advised by Prof. [Jason Cong](https://people.cs.ucla.edu/~jasonc/).
+I am a first year PhD student at [UCLA](https://ucla.edu/), majoring in Computer Science. I'm advised by Prof. [Jason Cong](https://samueli.ucla.edu/people/jason-jingsheng-cong/) in [VAST](https://vast.cs.ucla.edu/) lab.
 
-Before I joined UCLA [VAST](https://vast.cs.ucla.edu/) lab, I worked with Prof. [Yibo Lin](https://yibolin.com/) on differentiable physical design optimization and AI4EDA research work.
+Before I joined UCLA, I worked with Prof. [Yibo Lin](https://yibolin.com/) on differentiable physical design optimization and AI4EDA research work.
 
 {style="text-align: justify;"}s

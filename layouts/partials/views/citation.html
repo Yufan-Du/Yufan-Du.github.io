@@ -35,7 +35,7 @@
         </span>.
 
         {{/* Award Badge - THIS IS THE NEWLY ADDED CODE */}}
-        {{ with .Params.award }}
+        {{ with $item.Params.award }}
           <span class="badge badge-award">{{ . | markdownify | emojify }}</span>
         {{ end }}
       </div>
