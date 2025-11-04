@@ -127,6 +127,6 @@ highlight_name: true
 
 I am a first year PhD student at [UCLA](https://ucla.edu/), majoring in Computer Science. I'm advised by Prof. [Jason Cong](https://vast.cs.ucla.edu/people/faculty/jason-cong) in [VAST](https://vast.cs.ucla.edu/) lab.
 
-Before I joined UCLA, I worked with Prof. [Yibo Lin](https://yibolin.com/) at [PKU](https://pku.edu.cn) on differentiable physical design optimization and AI4EDA research. I also did an internship at UT Austin Prof. [David Pan](https://users.ece.utexas.edu/~dpan/)'s group, where I focused on improving the gate sizing design.
+Before I joined UCLA, I worked with Prof. [Yibo Lin](https://yibolin.com/) at [PKU](https://pku.edu.cn) on differentiable physical design optimization and AI4EDA research. I also did an internship at [UT Austin](https://www.utexas.edu/) Prof. [David Pan](https://users.ece.utexas.edu/~dpan/)'s group, where I focused on improving the gate sizing design.
 
 {style="text-align: justify;"}s
