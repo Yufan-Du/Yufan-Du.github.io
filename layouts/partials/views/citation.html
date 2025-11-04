@@ -1,4 +1,3 @@
-
 {{/* Hugo Blox - Citation View */}}
 {{/* This file overrides the theme's default citation view to add the 'award' badge */}}
 
@@ -17,14 +16,16 @@
         <a href="{{$item.RelPermalink}}">{{ $item.Title | markdownify | emojify }}</a>
       </div>
 
-      {{/* Authors */}}
+      {{/* Authors and Year */}}
       <div class="pub-authors">
         {{ partial "page_metadata_authors" $item }}
+        
+        {{/* --- MOVED YEAR INSIDE --- */}}
+        {{/* This adds (2025) after the author list */}}
+        <span class="pub-year">({{ $item.Date.Format "2006" }})</span>
       </div>
 
-      {{/* --- NEWLY ADDED YEAR --- */}}
-      {{/* This adds (2025) after the author list */}}
-      <span class="pub-year">({{ $item.Date.Format "2006" }})</span>
+      {{/* --- REMOVED YEAR FROM HERE --- */}}
 
       <div class="pub-details">
         {{/* Publication details */}}
@@ -33,12 +34,6 @@
             {{- . | markdownify | emojify -}}
           {{- end -}}
         </span>.
-
-        {{/* --- REMOVED OLD DATE --- */}}
-        {{/* <span class="pub-date">
-            {{- $item.Date.Format (site.Params.date_format | default "January 2006") -}}
-          </span>.
-        */}}
 
         {{/* Award Badge (Fixed to use $item) */}}
         {{ with $item.Params.award }}
