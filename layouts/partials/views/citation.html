@@ -1,9 +1,10 @@
 {{ $item := .item }}
 <div class="pub-list-item" style="margin-bottom: 1rem">
   <div class="row">
-    <div class="col-auto">
-      <i class="fa-li fa-solid fa-file-lines" aria-hidden="true"></i>
-    </div>
+
+    {{/* --- CHANGE 1: ICON REMOVED --- */}}
+    {{/* The 'col-auto' div that held the icon has been deleted. */}}
+
     <div class="col">
 
       {{/* Title */}}
@@ -26,15 +27,13 @@
           {{- end -}}
         </span>.
 
-        {{/* --- THIS IS THE CORRECTED TAG CODE --- */}}
+        {{/* --- CHANGE 2: BADGE LINK REMOVED --- */}}
         {{ with $item.Params.tags }}
         <div class="pub-tags">
           {{ range . }}
-            {{/* Create the relative URL path, e.g., "tags/best-paper-nominee" */}}
-            {{ $tag_path := printf "tags/%s" (. | urlize) }}
-            {{/* Create the full, absolute URL */}}
-            {{ $tag_link := absURL $tag_path }}
-            <a class="badge badge-light" href="{{ $tag_link }}">{{ . }}</a>
+            {{/* This is now a 'span' so it is not clickable, */}}
+            {{/* but 'badge' class retains styling and hover. */}}
+            <span class="badge badge-light">{{ . }}</span>
           {{ end }}
         </div>
         {{ end }}
