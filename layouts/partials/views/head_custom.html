@@ -1,8 +1,7 @@
 <style>
-  /* * Bolds your name (admin) in the publication list.
-   * This directly targets the link to your author profile.
-   */
-  .pub-authors a[href*="/authors/admin"] {
-    font-weight: 600 !important;
+  /* Forces the author's name (admin) to be black and bold, overriding the link's default blue color. */
+  .pub-authors b a {
+    color: #212529 !important; /* Forces the link color to be black/dark grey */
+    font-weight: 600 !important; /* Ensures it stays bold */
   }
 </style>
