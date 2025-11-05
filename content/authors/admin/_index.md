@@ -32,8 +32,8 @@ interests:
   - Hardware-software Co-design
   - Differentiable optimization
   - GPU accelaration
-  - Electronic Design Automation (EDA)
-  - ML-specific Compiler Design
+  - Electronic design automation (EDA)
+  - ML-specific compiler design
 # Education to show in About widget
 education:
   courses:

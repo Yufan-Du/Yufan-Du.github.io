@@ -1,10 +1,6 @@
 {{ $item := .item }}
 <div class="pub-list-item" style="margin-bottom: 1rem">
   <div class="row">
-
-    {{/* --- CHANGE 1: ICON REMOVED --- */}}
-    {{/* The 'col-auto' div that held the icon has been deleted. */}}
-
     <div class="col">
 
       {{/* Title */}}
@@ -12,9 +8,32 @@
         <a href="{{$item.RelPermalink}}">{{ $item.Title | markdownify | emojify }}</a>
       </div>
 
-      {{/* Authors and Year */}}
+      {{/* --- NEW AUTHOR LOGIC --- */}}
+      {{/* This block replaces the simple partial call and forces the bolding. */}}
       <div class="pub-authors">
-        {{ partial "page_metadata_authors" $item }}
+        {{ with $item.Params.authors }}
+          {{ $len := len . }}
+          {{ range $index, $author_key := . }}
+            {{ $is_admin := eq "admin" $author_key }}
+            {{ $author_page := site.GetPage (printf "authors/%s" $author_key) }}
+            {{ $author_name := $author_page.Title | default $author_key }}
+
+            {{/* Check if this author is 'admin' and apply bold style */}}
+            {{ if $is_admin }}
+              <a href="{{ $author_page.RelPermalink }}"><b>{{ $author_name }}</b></a>
+            {{ else }}
+              {{ if $author_page }}
+                <a href="{{ $author_page.RelPermalink }}">{{ $author_name }}</a>
+              {{ else }}
+                <span>{{ $author_name }}</span>
+              {{ end }}
+            {{ end }}
+
+            {{/* Add commas */}}
+            {{ if lt (add $index 1) $len }}, {{ end }}
+          {{ end }}
+        {{ end }}
+        
         {{/* This adds (2025) to the end of the author line */}}
         <span class="pub-year">({{ $item.Date.Format "2006" }})</span>
       </div>
@@ -27,24 +46,20 @@
           {{- end -}}
         </span>.
 
-        {{/* --- CHANGE 2: BADGE LINK REMOVED --- */}}
+        {{/* Badge code (unchanged) */}}
         {{ with $item.Params.tags }}
         <div class="pub-tags">
           {{ range . }}
-            {{/* This is now a 'span' so it is not clickable, */}}
-            {{/* but 'badge' class retains styling and hover. */}}
             <span class="badge badge-light">{{ . }}</span>
           {{ end }}
         </div>
         {{ end }}
-        
       </div>
 
       {{/* Links */}}
       <div class="pub-links">
         {{ partial "page_links" (dict "page" $item "is_list" 1) }}
       </div>
-
     </div>
   </div>
 </div>
