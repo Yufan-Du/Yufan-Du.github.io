@@ -6,36 +6,53 @@
   }
 </style>
 
+
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // List of avatar image URLs
+  (function () {
+    // 1) List of avatar image URLs
     const avatars = [
       "/images/avatars/avatar1.jpg",
       "/images/avatars/avatar2.jpg",
-      "/images/avatars/avatar3.jpg"
+      "/images/avatars/avatar3.jpg",
       // add more if you want
     ];
 
-    if (avatars.length === 0) return;
+    if (!avatars.length) return;
 
-    // Pick a random avatar
-    const randomIndex = Math.floor(Math.random() * avatars.length);
-    const randomAvatar = avatars[randomIndex];
+    function setRandomAvatar() {
+      // 2) Try several common selectors Hugo Blox/Academic uses
+      const candidates = [
+        document.querySelector("img.avatar.avatar-circle"),
+        document.querySelector("img.avatar-circle"),
+        document.querySelector("img.avatar"),
+        document.querySelector(".avatar img"),
+        document.querySelector(".avatar-wrapper img"),
+        document.querySelector(".profile-avatar img")
+      ];
 
-    // Try to find the profile avatar image
-    // Hugo Blox / Academic usually uses classes like `avatar`, `avatar-circle`
-    const candidates = [
-      document.querySelector("img.avatar.avatar-circle"),
-      document.querySelector("img.avatar"),
-      document.querySelector(".avatar-wrapper img")
-    ];
+      const img = candidates.find(el => el);
 
-    const img = candidates.find(el => el !== null);
+      if (!img) {
+        // Uncomment this if you want to debug in the console:
+        // console.log("Random avatar: no avatar <img> found");
+        return;
+      }
 
-    if (img) {
+      const randomIndex = Math.floor(Math.random() * avatars.length);
+      const randomAvatar = avatars[randomIndex];
+
       img.src = randomAvatar;
-      // Optional: avoid browser showing the old avatar from cache
-      img.srcset = "";
+      // Clear srcset to avoid browser picking old versions
+      if (img.srcset !== undefined) {
+        img.srcset = "";
+      }
     }
-  });
+
+    // 3) Run AFTER everything is loaded so the theme can't overwrite us
+    if (document.readyState === "complete") {
+      setRandomAvatar();
+    } else {
+      window.addEventListener("load", setRandomAvatar);
+    }
+  })();
 </script>
