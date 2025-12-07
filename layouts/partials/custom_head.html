@@ -1,12 +1,15 @@
 <style>
-  /* Hide the original avatar immediately before it renders */
+  /* Avatar customization - just size, no hiding tricks needed */
   img.avatar.avatar-circle {
-    content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"></svg>') !important;
-    background-color: #f0f0f0;
     width: 400px !important;
     height: 400px !important;
     object-fit: cover !important;
     object-position: center !important;
+  }
+  
+  /* Remove any transitions to avoid animation */
+  img.avatar {
+    transition: none !important;
   }
 </style>
 
