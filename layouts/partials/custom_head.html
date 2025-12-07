@@ -1,0 +1,76 @@
+<style>
+  /* Increase avatar size for better quality display */
+  img.avatar.avatar-circle {
+    width: 400px !important;
+    height: 400px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+</style>
+
+<script>
+  (function () {
+    // List of avatar image URLs
+    const avatars = [
+      "/images/avatars/avatar1.jpg",
+      "/images/avatars/avatar2.jpg",
+      "/images/avatars/avatar3.jpg",
+    ];
+
+    if (!avatars.length) return;
+
+    // Get or create random avatar for this session
+    let selectedAvatar = sessionStorage.getItem("selected_avatar");
+    if (!selectedAvatar) {
+      selectedAvatar = avatars[Math.floor(Math.random() * avatars.length)];
+      sessionStorage.setItem("selected_avatar", selectedAvatar);
+    }
+
+    console.log("[Random Avatar] Selected:", selectedAvatar);
+
+    function setRandomAvatar() {
+      const img = document.querySelector("img.avatar.avatar-circle");
+
+      if (!img) {
+        console.log("[Random Avatar] Avatar image not found");
+        return;
+      }
+
+      console.log("[Random Avatar] Found avatar, setting to:", selectedAvatar);
+      
+      // Set the src
+      img.src = selectedAvatar;
+      img.setAttribute("src", selectedAvatar);
+      
+      // Remove srcset
+      img.removeAttribute("srcset");
+      img.srcset = "";
+      
+      // Update dimensions
+      img.setAttribute("width", "400");
+      img.setAttribute("height", "400");
+      
+      // Apply inline styles
+      img.style.width = "400px";
+      img.style.height = "400px";
+      img.style.objectFit = "cover";
+      
+      console.log("[Random Avatar] Avatar src now:", img.src);
+    }
+
+    // Run at multiple points to ensure it works
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", setRandomAvatar);
+    }
+    
+    if (document.readyState !== "loading") {
+      setRandomAvatar();
+    }
+    
+    window.addEventListener("load", function() {
+      setRandomAvatar();
+      setTimeout(setRandomAvatar, 100);
+      setTimeout(setRandomAvatar, 500);
+    });
+  })();
+</script>

@@ -68,3 +68,17 @@
 .pub-details .pub-publication {
   font-style: italic;
 }
+
+/* --- AVATAR CUSTOMIZATION --- */
+/* Increase avatar size for better quality display */
+img.avatar.avatar-circle {
+  width: 400px !important;
+  height: 400px !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+/* Ensure smooth transitions for avatar changes */
+img.avatar {
+  transition: all 0.3s ease;
+}
