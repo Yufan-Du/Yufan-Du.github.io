@@ -14,16 +14,31 @@
     height: 400px !important;
     object-fit: cover !important;
   }
-  
-  /* Ensure smooth transitions */
-  img.avatar.avatar-circle {
-    transition: all 0.3s ease;
-  }
 </style>
+
+<!-- Inline script to run IMMEDIATELY in head -->
+<script>
+  // Store selected avatar in sessionStorage so we use the same one on refresh
+  (function() {
+    const avatars = [
+      "/images/avatars/avatar1.jpg",
+      "/images/avatars/avatar2.jpg",
+      "/images/avatars/avatar3.jpg",
+    ];
+    
+    let selectedAvatar = sessionStorage.getItem("selected_avatar");
+    if (!selectedAvatar) {
+      selectedAvatar = avatars[Math.floor(Math.random() * avatars.length)];
+      sessionStorage.setItem("selected_avatar", selectedAvatar);
+    }
+    
+    window.__selectedAvatar = selectedAvatar;
+    console.log("Selected avatar:", selectedAvatar);
+  })();
+</script>
 
 <script>
   (function () {
-    // 1) List of avatar image URLs - use high resolution versions
     const avatars = [
       "/images/avatars/avatar1.jpg",
       "/images/avatars/avatar2.jpg",
@@ -36,48 +51,66 @@
       const img = document.querySelector("img.avatar.avatar-circle");
 
       if (!img) {
-        console.log("Random avatar: no avatar found");
+        console.log("Avatar not found yet");
         return;
       }
 
-      const randomIndex = Math.floor(Math.random() * avatars.length);
-      const randomAvatar = avatars[randomIndex];
+      // Use the pre-selected avatar from sessionStorage
+      const randomAvatar = window.__selectedAvatar || avatars[Math.floor(Math.random() * avatars.length)];
 
-      console.log(`Setting avatar to: ${randomAvatar}`);
+      console.log(`[Avatar] Current: ${img.src}`);
+      console.log(`[Avatar] Setting to: ${randomAvatar}`);
       
-      // Force update and override any subsequent changes
+      // Method 1: Direct property assignment
       img.src = randomAvatar;
-      img.srcset = ""; // Clear srcset
       
-      // Also set the data-src if it exists (some lazy loading uses this)
-      if (img.dataset.src) {
-        img.dataset.src = randomAvatar;
+      // Method 2: Use setAttribute
+      img.setAttribute("src", randomAvatar);
+      
+      // Remove srcset to prevent browser from picking cached versions
+      img.removeAttribute("srcset");
+      if (img.srcset) {
+        img.srcset = "";
       }
       
-      // Force size via inline style
+      // Set width and height attributes
+      img.setAttribute("width", "400");
+      img.setAttribute("height", "400");
+      
+      // Also force via inline style
       img.style.width = "400px";
       img.style.height = "400px";
       img.style.objectFit = "cover";
+
+      console.log(`[Avatar] Done. New src: ${img.src}`);
     }
 
-    // Run multiple times to ensure it takes effect despite other scripts
+    // Run at every critical timing
     function runSetAvatar() {
       setRandomAvatar();
-      // Run again after a short delay in case other scripts modify the src
-      setTimeout(setRandomAvatar, 100);
-      setTimeout(setRandomAvatar, 500);
+      setTimeout(setRandomAvatar, 50);
+      setTimeout(setRandomAvatar, 150);
+      setTimeout(setRandomAvatar, 300);
+      setTimeout(setRandomAvatar, 600);
       setTimeout(setRandomAvatar, 1000);
+      setTimeout(setRandomAvatar, 2000);
     }
 
-    if (document.readyState === "complete") {
-      runSetAvatar();
-    } else {
-      window.addEventListener("load", runSetAvatar);
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", function() {
+        console.log("[Avatar] DOMContentLoaded fired");
+        runSetAvatar();
+      });
     }
     
-    // Also run when DOM is ready
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", runSetAvatar);
+    if (document.readyState !== "loading") {
+      console.log("[Avatar] Running immediately (readyState=" + document.readyState + ")");
+      runSetAvatar();
     }
+    
+    window.addEventListener("load", function() {
+      console.log("[Avatar] load event fired");
+      runSetAvatar();
+    });
   })();
 </script>
