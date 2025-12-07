@@ -5,3 +5,37 @@
     font-weight: 600 !important; /* Ensures it stays bold */
   }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // List of avatar image URLs
+    const avatars = [
+      "/images/avatars/avatar1.jpg",
+      "/images/avatars/avatar2.jpg",
+      "/images/avatars/avatar3.jpg"
+      // add more if you want
+    ];
+
+    if (avatars.length === 0) return;
+
+    // Pick a random avatar
+    const randomIndex = Math.floor(Math.random() * avatars.length);
+    const randomAvatar = avatars[randomIndex];
+
+    // Try to find the profile avatar image
+    // Hugo Blox / Academic usually uses classes like `avatar`, `avatar-circle`
+    const candidates = [
+      document.querySelector("img.avatar.avatar-circle"),
+      document.querySelector("img.avatar"),
+      document.querySelector(".avatar-wrapper img")
+    ];
+
+    const img = candidates.find(el => el !== null);
+
+    if (img) {
+      img.src = randomAvatar;
+      // Optional: avoid browser showing the old avatar from cache
+      img.srcset = "";
+    }
+  });
+</script>
