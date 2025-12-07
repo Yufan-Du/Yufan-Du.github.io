@@ -5,6 +5,17 @@
     height: 400px !important;
     object-fit: cover !important;
     object-position: center !important;
+    visibility: hidden; /* Hide old avatar initially */
+  }
+  
+  /* Show avatar once it's loaded with new src */
+  img.avatar.avatar-circle[data-avatar-loaded="true"] {
+    visibility: visible;
+  }
+  
+  /* Remove transition to avoid animation */
+  img.avatar {
+    transition: none !important;
   }
 </style>
 
@@ -19,58 +30,82 @@
 
     if (!avatars.length) return;
 
+    // Generate truly random avatar (not always first one)
+    function getRandomAvatar() {
+      // Use Math.random() with better entropy
+      const randomIndex = Math.floor(Math.random() * avatars.length);
+      console.log("[Random Avatar] Random index:", randomIndex, "Total avatars:", avatars.length);
+      return avatars[randomIndex];
+    }
+
     // Get or create random avatar for this session
     let selectedAvatar = sessionStorage.getItem("selected_avatar");
     if (!selectedAvatar) {
-      selectedAvatar = avatars[Math.floor(Math.random() * avatars.length)];
+      selectedAvatar = getRandomAvatar();
       sessionStorage.setItem("selected_avatar", selectedAvatar);
+      console.log("[Random Avatar] New avatar selected and stored:", selectedAvatar);
+    } else {
+      console.log("[Random Avatar] Using stored avatar:", selectedAvatar);
     }
-
-    console.log("[Random Avatar] Selected:", selectedAvatar);
 
     function setRandomAvatar() {
       const img = document.querySelector("img.avatar.avatar-circle");
 
       if (!img) {
-        console.log("[Random Avatar] Avatar image not found");
-        return;
+        console.log("[Random Avatar] Avatar image not found yet");
+        return false;
       }
 
-      console.log("[Random Avatar] Found avatar, setting to:", selectedAvatar);
+      console.log("[Random Avatar] Found avatar element, current src:", img.src);
+      console.log("[Random Avatar] Setting src to:", selectedAvatar);
       
-      // Set the src
+      // Set the src - use both methods for reliability
       img.src = selectedAvatar;
       img.setAttribute("src", selectedAvatar);
-      
-      // Remove srcset
       img.removeAttribute("srcset");
       img.srcset = "";
       
-      // Update dimensions
+      // Update dimensions to avoid layout shift
       img.setAttribute("width", "400");
       img.setAttribute("height", "400");
-      
-      // Apply inline styles
       img.style.width = "400px";
       img.style.height = "400px";
-      img.style.objectFit = "cover";
       
-      console.log("[Random Avatar] Avatar src now:", img.src);
+      // Mark as loaded so CSS can show it
+      img.setAttribute("data-avatar-loaded", "true");
+      
+      console.log("[Random Avatar] Avatar src updated to:", img.src);
+      return true;
     }
 
-    // Run at multiple points to ensure it works
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", setRandomAvatar);
+    // Run at multiple points to ensure it takes effect
+    function runSetAvatar() {
+      let success = setRandomAvatar();
+      
+      if (!success) {
+        // If not found yet, keep trying
+        setTimeout(() => runSetAvatar(), 50);
+      } else {
+        // If found, run a few more times to be safe
+        setTimeout(setRandomAvatar, 100);
+        setTimeout(setRandomAvatar, 300);
+      }
     }
-    
-    if (document.readyState !== "loading") {
-      setRandomAvatar();
+
+    // Different timing strategies
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", function() {
+        console.log("[Random Avatar] DOMContentLoaded fired");
+        runSetAvatar();
+      });
+    } else {
+      console.log("[Random Avatar] Document already loaded, running immediately");
+      runSetAvatar();
     }
     
     window.addEventListener("load", function() {
-      setRandomAvatar();
-      setTimeout(setRandomAvatar, 100);
-      setTimeout(setRandomAvatar, 500);
+      console.log("[Random Avatar] Window load event fired");
+      setTimeout(setRandomAvatar, 50);
     });
   })();
 </script>
