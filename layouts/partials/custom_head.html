@@ -1,27 +1,17 @@
 <style>
-  /* Increase avatar size for better quality display */
+  /* Hide the original avatar immediately before it renders */
   img.avatar.avatar-circle {
+    content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"></svg>') !important;
+    background-color: #f0f0f0;
     width: 400px !important;
     height: 400px !important;
     object-fit: cover !important;
     object-position: center !important;
-    visibility: hidden; /* Hide old avatar initially */
-  }
-  
-  /* Show avatar once it's loaded with new src */
-  img.avatar.avatar-circle[data-avatar-loaded="true"] {
-    visibility: visible;
-  }
-  
-  /* Remove transition to avoid animation */
-  img.avatar {
-    transition: none !important;
   }
 </style>
 
 <script>
   (function () {
-    // List of avatar image URLs
     const avatars = [
       "/images/avatars/avatar1.jpg",
       "/images/avatars/avatar2.jpg",
@@ -30,82 +20,57 @@
 
     if (!avatars.length) return;
 
-    // Generate truly random avatar (not always first one)
-    function getRandomAvatar() {
-      // Use Math.random() with better entropy
-      const randomIndex = Math.floor(Math.random() * avatars.length);
-      console.log("[Random Avatar] Random index:", randomIndex, "Total avatars:", avatars.length);
-      return avatars[randomIndex];
-    }
-
-    // Get or create random avatar for this session
-    let selectedAvatar = sessionStorage.getItem("selected_avatar");
-    if (!selectedAvatar) {
-      selectedAvatar = getRandomAvatar();
-      sessionStorage.setItem("selected_avatar", selectedAvatar);
-      console.log("[Random Avatar] New avatar selected and stored:", selectedAvatar);
-    } else {
-      console.log("[Random Avatar] Using stored avatar:", selectedAvatar);
-    }
+    // Pick a random avatar - fresh every page load
+    const randomIndex = Math.floor(Math.random() * avatars.length);
+    const selectedAvatar = avatars[randomIndex];
+    
+    console.log("[Avatar] Random index:", randomIndex);
+    console.log("[Avatar] Selected avatar:", selectedAvatar);
 
     function setRandomAvatar() {
       const img = document.querySelector("img.avatar.avatar-circle");
-
       if (!img) {
-        console.log("[Random Avatar] Avatar image not found yet");
+        console.log("[Avatar] Not found, retrying...");
         return false;
       }
 
-      console.log("[Random Avatar] Found avatar element, current src:", img.src);
-      console.log("[Random Avatar] Setting src to:", selectedAvatar);
+      console.log("[Avatar] Found element, old src:", img.src);
       
-      // Set the src - use both methods for reliability
+      // Replace src immediately and forcefully
       img.src = selectedAvatar;
+      img.srcset = "";
+      img.sizes = "";
+      
+      // Also use setAttribute
       img.setAttribute("src", selectedAvatar);
       img.removeAttribute("srcset");
-      img.srcset = "";
       
-      // Update dimensions to avoid layout shift
-      img.setAttribute("width", "400");
-      img.setAttribute("height", "400");
+      // Force dimensions
       img.style.width = "400px";
       img.style.height = "400px";
+      img.style.objectFit = "cover";
       
-      // Mark as loaded so CSS can show it
-      img.setAttribute("data-avatar-loaded", "true");
-      
-      console.log("[Random Avatar] Avatar src updated to:", img.src);
+      console.log("[Avatar] New src:", img.src);
       return true;
     }
 
-    // Run at multiple points to ensure it takes effect
-    function runSetAvatar() {
-      let success = setRandomAvatar();
-      
-      if (!success) {
-        // If not found yet, keep trying
-        setTimeout(() => runSetAvatar(), 50);
-      } else {
-        // If found, run a few more times to be safe
+    // Keep trying until we find the element
+    let attempts = 0;
+    const maxAttempts = 100;
+    
+    function trySetAvatar() {
+      if (setRandomAvatar() || attempts > maxAttempts) {
+        console.log("[Avatar] Success or max attempts reached");
+        // Run a few more times for good measure
         setTimeout(setRandomAvatar, 100);
         setTimeout(setRandomAvatar, 300);
+        return;
       }
+      attempts++;
+      setTimeout(trySetAvatar, 10);
     }
 
-    // Different timing strategies
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", function() {
-        console.log("[Random Avatar] DOMContentLoaded fired");
-        runSetAvatar();
-      });
-    } else {
-      console.log("[Random Avatar] Document already loaded, running immediately");
-      runSetAvatar();
-    }
-    
-    window.addEventListener("load", function() {
-      console.log("[Random Avatar] Window load event fired");
-      setTimeout(setRandomAvatar, 50);
-    });
+    // Start trying immediately
+    trySetAvatar();
   })();
 </script>
