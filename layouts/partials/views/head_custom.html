@@ -7,66 +7,77 @@
 </style>
 
 
+<style>
+  /* Increase avatar size for better quality display */
+  img.avatar.avatar-circle {
+    width: 400px !important;
+    height: 400px !important;
+    object-fit: cover !important;
+  }
+  
+  /* Ensure smooth transitions */
+  img.avatar.avatar-circle {
+    transition: all 0.3s ease;
+  }
+</style>
+
 <script>
   (function () {
-    // 1) List of avatar image URLs
+    // 1) List of avatar image URLs - use high resolution versions
     const avatars = [
       "/images/avatars/avatar1.jpg",
       "/images/avatars/avatar2.jpg",
       "/images/avatars/avatar3.jpg",
-      // add more if you want
     ];
 
     if (!avatars.length) return;
 
     function setRandomAvatar() {
-      // 2) Try several common selectors Hugo Blox/Academic uses
-      const candidates = [
-        document.querySelector("img.avatar.avatar-circle"),
-        document.querySelector("img.avatar-circle"),
-        document.querySelector("img.avatar"),
-        document.querySelector(".avatar img"),
-        document.querySelector(".avatar-wrapper img"),
-        document.querySelector(".profile-avatar img"),
-        document.querySelector("img[alt='avatar']"),
-        document.querySelector("img[alt='Avatar']"),
-        document.querySelector(".authors-info img"),
-        document.querySelector(".author-profile-img"),
-        // More specific selectors for Academic theme
-        document.querySelector(".col-md-4 img.avatar-circle"),
-        document.querySelector("[class*='hero'] img.avatar")
-      ];
-
-      const img = candidates.find(el => el);
+      const img = document.querySelector("img.avatar.avatar-circle");
 
       if (!img) {
-        console.log("Random avatar: no avatar <img> found. Checking all img elements...");
-        const allImgs = document.querySelectorAll("img");
-        console.log(`Found ${allImgs.length} total img elements`);
-        allImgs.forEach((el, idx) => {
-          console.log(`[${idx}] src="${el.src}" class="${el.className}" alt="${el.alt}"`);
-        });
+        console.log("Random avatar: no avatar found");
         return;
       }
 
-      console.log(`Found avatar element: class="${img.className}" src="${img.src}"`);
-      
       const randomIndex = Math.floor(Math.random() * avatars.length);
       const randomAvatar = avatars[randomIndex];
 
       console.log(`Setting avatar to: ${randomAvatar}`);
+      
+      // Force update and override any subsequent changes
       img.src = randomAvatar;
-      // Clear srcset to avoid browser picking old versions
-      if (img.srcset !== undefined) {
-        img.srcset = "";
+      img.srcset = ""; // Clear srcset
+      
+      // Also set the data-src if it exists (some lazy loading uses this)
+      if (img.dataset.src) {
+        img.dataset.src = randomAvatar;
       }
+      
+      // Force size via inline style
+      img.style.width = "400px";
+      img.style.height = "400px";
+      img.style.objectFit = "cover";
     }
 
-    // 3) Run AFTER everything is loaded so the theme can't overwrite us
-    if (document.readyState === "complete") {
+    // Run multiple times to ensure it takes effect despite other scripts
+    function runSetAvatar() {
       setRandomAvatar();
+      // Run again after a short delay in case other scripts modify the src
+      setTimeout(setRandomAvatar, 100);
+      setTimeout(setRandomAvatar, 500);
+      setTimeout(setRandomAvatar, 1000);
+    }
+
+    if (document.readyState === "complete") {
+      runSetAvatar();
     } else {
-      window.addEventListener("load", setRandomAvatar);
+      window.addEventListener("load", runSetAvatar);
+    }
+    
+    // Also run when DOM is ready
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", runSetAvatar);
     }
   })();
 </script>
