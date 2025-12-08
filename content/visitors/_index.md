@@ -3,7 +3,6 @@ title: "Visitors Map"
 type: page
 ---
 
-{{< rawhtml >}}
 <div style="max-width: 800px; margin: 2rem auto;">
   <script
     type="text/javascript"
@@ -11,5 +10,4 @@ type: page
     src="https://mapmyvisitors.com/globe.js?d=WKuvZgNOUeiHiUAKiYpx7W7bulHziKrRYEI3lGPXpSE">
   </script>
 </div>
-{{< /rawhtml >}}
 
