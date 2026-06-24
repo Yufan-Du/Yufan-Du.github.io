@@ -128,6 +128,4 @@ I am a first year PhD student at [UCLA](https://ucla.edu/), majoring in Computer
 
 Before I joined UCLA, I worked on optimization and systems projects at [PKU](https://pku.edu.cn). I also did an internship at [UT Austin](https://www.utexas.edu/) in Prof. [David Pan](https://users.ece.utexas.edu/~dpan/)'s group, where I focused on gate sizing design.
 
-<img src="/uploads/aws-logo.svg" alt="AWS logo" style="height: 1.2em; vertical-align: -0.15em; margin-right: 0.35em;" />From Jun. to Sep. 2026, I am interning at Amazon Web Services (AWS) with manager Yida Wang, working on multi-node, multi-GPU LLM serving optimization.
-
-{style="text-align: justify;"}s
+{style="text-align: justify;"}

@@ -12,6 +12,39 @@ sections:
       # Choose a user profile to display (a folder name within `content/authors/`)
       username: admin
 
+      - block: experience
+            content:
+                  title: Experience
+                  # Date format for experience
+                  #   Refer to https://docs.hugoblox.com/customization/#date-format
+                  date_format: Jan 2006
+                  # Experiences.
+                  #   Add/remove as many `experience` items below as you like.
+                  #   Required fields are `title`, `company`, and `date_start`.
+                  #   Leave `date_end` empty if it's your current employer.
+                  #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
+                  items:
+                        - title: Applied Scientist Intern
+                              company: Amazon Web Services (AWS)
+                              company_url: https://aws.amazon.com/
+                              company_logo: aws
+                              location: San Jose, California, United States
+                              date_start: '2026-06-01'
+                              date_end: ''
+                              description: |2-
+                                          Multi-node, multi-GPU LLM serving optimization.
+                                          Manager: Yida Wang.
+                        - title: Undergraduate Research Assistant
+                              company: The University of Texas at Austin
+                              company_url: https://www.utexas.edu/
+                              company_logo: utexas
+                              location: Austin, Texas, United States
+                              date_start: '2024-06-01'
+                              date_end: '2024-09-01'
+                              description: Differentiable chip physical design algorithm optimization.
+            design:
+                  columns: '1'
+
   - block: collection
     id: featured
     content:

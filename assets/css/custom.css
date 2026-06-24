@@ -47,6 +47,7 @@
 .pub-authors {
   font-size: 0.9rem; /* Slightly smaller font */
   color: #555;      /* Greyer text */
+  line-height: 1.15;
 }
 
 /* --- NEW --- */
@@ -62,11 +63,29 @@
 .pub-details {
   font-size: 0.9rem; /* Slightly smaller font */
   color: #666;      /* Lighter grey text */
+  line-height: 1.15;
+  margin-top: 0.1rem;
 }
 
 /* Make the conference/journal title italic */
 .pub-details .pub-publication {
   font-style: italic;
+}
+
+.pub-title {
+  margin-bottom: 0.1rem;
+  line-height: 1.2;
+}
+
+.pub-links {
+  margin-top: 0.15rem;
+}
+
+.pub-list-item .badge {
+  margin-top: 0.15rem;
+  margin-right: 0.25rem;
+  padding: 0.28em 0.45em;
+  font-size: 0.72rem;
 }
 
 /* --- AVATAR CUSTOMIZATION --- */
