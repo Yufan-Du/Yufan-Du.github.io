@@ -25,15 +25,14 @@ organizations:
     url: https://ucla.edu/
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research focuses on differentiable optimization, AI4EDA, software and hardware co-design, and compiler design.
+bio: My research focuses on domain-specific accelerators, compilers, LLM serving systems, and ML systems.
 
 # Interests to show in About widget
 interests:
-  - Hardware-software Co-design
-  - Differentiable optimization
-  - GPU accelaration
-  - Electronic design automation (EDA)
-  - ML-specific compiler design
+  - Domain-specific accelerators
+  - Compilers
+  - LLM serving systems
+  - ML systems
 # Education to show in About widget
 education:
   courses:
@@ -127,6 +126,8 @@ highlight_name: true
 
 I am a first year PhD student at [UCLA](https://ucla.edu/), majoring in Computer Science. I'm advised by Prof. [Jason Cong](https://vast.cs.ucla.edu/people/faculty/jason-cong) in [VAST](https://vast.cs.ucla.edu/) lab.
 
-Before I joined UCLA, I worked with Prof. [Yibo Lin](https://yibolin.com/) at [PKU](https://pku.edu.cn) on differentiable physical design optimization and AI4EDA research. I also did an internship at [UT Austin](https://www.utexas.edu/) Prof. [David Pan](https://users.ece.utexas.edu/~dpan/)'s group, where I focused on improving the gate sizing design.
+Before I joined UCLA, I worked on optimization and systems projects at [PKU](https://pku.edu.cn). I also did an internship at [UT Austin](https://www.utexas.edu/) in Prof. [David Pan](https://users.ece.utexas.edu/~dpan/)'s group, where I focused on gate sizing design.
+
+<img src="/uploads/aws-logo.svg" alt="AWS logo" style="height: 1.2em; vertical-align: -0.15em; margin-right: 0.35em;" />From Jun. to Sep. 2026, I am interning at Amazon Web Services (AWS) with manager Yida Wang, working on multi-node, multi-GPU LLM serving optimization.
 
 {style="text-align: justify;"}s
