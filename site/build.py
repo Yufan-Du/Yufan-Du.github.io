@@ -115,6 +115,15 @@ def render_publications(pubs, me):
     return "\n".join(out)
 
 
+def render_education(edu):
+    return "\n".join(
+        f'        <li><time>{esc(e["years"])}</time>'
+        f'<span><span class="deg">{esc(e["degree"])}</span> · '
+        f'<span class="sch">{esc(e["school"])}</span></span></li>'
+        for e in edu
+    )
+
+
 def render_route(words):
     """words joined by animated wires; staggered delays make one signal relay
     left-to-right: word-wave -> wire-pulse -> word-wave -> ... -> ending via."""
@@ -210,6 +219,7 @@ def main():
         "{{PORTRAITS}}": json.dumps(portraits, separators=(",", ":")),
         "{{ABOUT_PARAGRAPHS}}": about_paras,
         "{{INTERESTS}}": interests,
+        "{{EDUCATION}}": render_education(c["about"]["education"]),
         "{{ROUTE}}": render_route(c.get("route", [])),
         "{{NEWS}}": render_news(c["news"]),
         "{{PUBLICATIONS}}": render_publications(c["publications"], me),

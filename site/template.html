@@ -185,6 +185,12 @@ section { margin-top: clamp(2.6rem, 7vh, 4.2rem); }
 .portrait-fig:hover .portrait-cap { opacity: 1; }
 .interests { margin-top: .4rem; font-size: .93em; color: var(--ink-soft); }
 .interests em { color: var(--copper); font-style: normal; }
+.edu { list-style: none; margin: 1.3rem 0 0; padding: .9rem 0 0; border-top: 1px dotted var(--hairline); }
+.edu li { display: grid; grid-template-columns: 5.4rem 1fr; gap: 1.1rem; padding: .22rem 0; }
+.edu time { font-family: var(--mono); font-size: .72rem; color: var(--ink-faint); padding-top: .32em; white-space: nowrap; }
+.edu .deg { font-weight: 560; }
+.edu .deg::before { content: '❦ '; color: var(--copper); font-weight: 400; }
+.edu .sch { color: var(--ink-soft); }
 @media (max-width: 620px) {
   .about-grid { grid-template-columns: 1fr; }
   .portrait { order: -1; }
@@ -342,7 +348,7 @@ footer a:hover { color: var(--copper); border-color: var(--copper); }
 footer .dot-admin { border: none; color: inherit; cursor: pointer; }
 
 @media (max-width: 620px) {
-  .news li, .exp li, .pubyear { grid-template-columns: 1fr; gap: .1rem; }
+  .news li, .exp li, .edu li, .pubyear { grid-template-columns: 1fr; gap: .1rem; }
   .pubyear > .y { font-size: 1.1rem; border-bottom: 1px dotted var(--hairline); margin-bottom: .5rem; }
 }
 @media print {
@@ -397,6 +403,9 @@ footer .dot-admin { border: none; color: inherit; cursor: pointer; }
     <div class="about-text">
       {{ABOUT_PARAGRAPHS}}
       <p class="interests">{{INTERESTS}}</p>
+      <ul class="edu">
+{{EDUCATION}}
+      </ul>
     </div>
     <figure class="portrait-fig">
       <img class="portrait" id="portrait" src="assets/portrait-1.jpg" alt="Portrait of {{NAME}}"
