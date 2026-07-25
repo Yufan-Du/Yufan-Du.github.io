@@ -28,24 +28,60 @@
       "ML for systems"
     ],
     "education": [
-      { "degree": "PhD in Computer Science", "school": "University of California, Los Angeles", "years": "2025 –" },
-      { "degree": "BSc in Computer Science", "school": "Peking University", "years": "2021 – 2025" },
-      { "degree": "BSc in Applied Physics", "school": "Peking University", "years": "2021 – 2025" }
+      {
+        "degree": "PhD in Computer Science",
+        "school": "University of California, Los Angeles",
+        "years": "2025 –"
+      },
+      {
+        "degree": "BSc in Computer Science",
+        "school": "Peking University",
+        "years": "2021 – 2025"
+      },
+      {
+        "degree": "BSc in Applied Physics",
+        "school": "Peking University",
+        "years": "2021 – 2025"
+      }
     ]
   },
   "news": [
-    { "date": "2026-06", "text": "Our DAC 2026 paper on quad-gradient gate sizing was nominated for <em>Best Paper</em>." },
-    { "date": "2026-06", "text": "Started as an Applied Scientist Intern at <a href=\"https://aws.amazon.com/\">AWS</a> in San Jose, working on multi-node, multi-GPU LLM serving." },
-    { "date": "2025-09", "text": "Joined <a href=\"https://vast.cs.ucla.edu/\">UCLA VAST lab</a> as a PhD student." },
-    { "date": "2025-05", "text": "Our ISEDA 2025 paper on differentiable gate sizing received an <em>Honorable Mention Paper Award</em>." },
-    { "date": "2024-10", "text": "Our ICCAD 2024 paper on fusing global placement and gate sizing was nominated for <em>Best Paper</em>." },
-    { "date": "2024-10", "text": "Our team won <em>first place</em> (out of 45 teams worldwide) in ICCAD 2024 Contest Problem C — scalable gate sizing with ML and GPU acceleration." }
+    {
+      "date": "2026-06",
+      "text": "Our DAC 2026 paper on quad-gradient gate sizing was nominated for <em>Best Paper</em>."
+    },
+    {
+      "date": "2026-06",
+      "text": "Started as an Applied Scientist Intern at <a href=\"https://aws.amazon.com/\">AWS</a> in San Jose, working on multi-node, multi-GPU LLM serving."
+    },
+    {
+      "date": "2025-09",
+      "text": "Joined <a href=\"https://vast.cs.ucla.edu/\">UCLA VAST lab</a> as a PhD student."
+    },
+    {
+      "date": "2025-05",
+      "text": "Our ISEDA 2025 paper on differentiable gate sizing received an <em>Honorable Mention Paper Award</em>."
+    },
+    {
+      "date": "2024-10",
+      "text": "Our ICCAD 2024 paper on fusing global placement and gate sizing was nominated for <em>Best Paper</em>."
+    },
+    {
+      "date": "2024-10",
+      "text": "Our team won <em>first place</em> (out of 45 teams worldwide) in ICCAD 2024 Contest Problem C — scalable gate sizing with ML and GPU acceleration."
+    }
   ],
   "publications": [
     {
       "id": "pan2026quad",
       "title": "Disentangled Differentiable Timing-Power Co-Optimization with Quad-Gradient Gate Sizing",
-      "authors": ["Zixuan Pan*", "Zizheng Guo*", "Yufan Du", "Runsheng Wang", "Yibo Lin"],
+      "authors": [
+        "Zixuan Pan*",
+        "Zizheng Guo*",
+        "Yufan Du",
+        "Runsheng Wang",
+        "Yibo Lin"
+      ],
       "venue": "DAC 2026",
       "venueFull": "ACM/IEEE Design Automation Conference",
       "year": 2026,
@@ -55,7 +91,12 @@
     {
       "id": "du2025physicalopt",
       "title": "Differentiable Physical Optimization",
-      "authors": ["Yufan Du", "Zizheng Guo", "Runsheng Wang", "Yibo Lin"],
+      "authors": [
+        "Yufan Du",
+        "Zizheng Guo",
+        "Runsheng Wang",
+        "Yibo Lin"
+      ],
       "venue": "ICCAD 2025",
       "venueFull": "IEEE/ACM International Conference on Computer-Aided Design",
       "year": 2025,
@@ -65,7 +106,16 @@
     {
       "id": "du2025addressing",
       "title": "Addressing Continuity and Expressivity Limitations in Differentiable Physical Optimization: A Case Study in Gate Sizing",
-      "authors": ["Yufan Du", "Zizheng Guo", "Yang Hsu", "Zhili Xiong", "Seunggeun Kim", "David Z. Pan", "Runsheng Wang", "Yibo Lin"],
+      "authors": [
+        "Yufan Du",
+        "Zizheng Guo",
+        "Yang Hsu",
+        "Zhili Xiong",
+        "Seunggeun Kim",
+        "David Z. Pan",
+        "Runsheng Wang",
+        "Yibo Lin"
+      ],
       "venue": "ISEDA 2025",
       "venueFull": "International Symposium of Electronics Design Automation",
       "year": 2025,
@@ -75,7 +125,13 @@
     {
       "id": "du2024fusion",
       "title": "Fusion of Global Placement and Gate Sizing with Differentiable Optimization",
-      "authors": ["Yufan Du", "Zizheng Guo", "Yibo Lin", "Runsheng Wang", "Ru Huang"],
+      "authors": [
+        "Yufan Du",
+        "Zizheng Guo",
+        "Yibo Lin",
+        "Runsheng Wang",
+        "Ru Huang"
+      ],
       "venue": "ICCAD 2024",
       "venueFull": "IEEE/ACM International Conference on Computer-Aided Design",
       "year": 2024,
@@ -85,7 +141,17 @@
     {
       "id": "guo2024heteroexcept",
       "title": "HeteroExcept: A CPU-GPU Heterogeneous Algorithm to Accelerate Exception-aware Static Timing Analysis",
-      "authors": ["Zizheng Guo", "Zuodong Zhang", "Wuxi Li", "Tsung-Wei Huang", "Xizhe Shi", "Yufan Du", "Yibo Lin", "Runsheng Wang", "Ru Huang"],
+      "authors": [
+        "Zizheng Guo",
+        "Zuodong Zhang",
+        "Wuxi Li",
+        "Tsung-Wei Huang",
+        "Xizhe Shi",
+        "Yufan Du",
+        "Yibo Lin",
+        "Runsheng Wang",
+        "Ru Huang"
+      ],
       "venue": "ICCAD 2024",
       "venueFull": "IEEE/ACM International Conference on Computer-Aided Design",
       "year": 2024,
@@ -95,12 +161,33 @@
     {
       "id": "du2024powpredict",
       "title": "PowPrediCT: Cross-Stage Power Prediction with Circuit-Transformation-Aware Learning",
-      "authors": ["Yufan Du", "Zizheng Guo", "Xun Jiang", "Zhuomin Chai", "Yuxiang Zhao", "Yibo Lin", "Runsheng Wang", "Ru Huang"],
+      "authors": [
+        "Yufan Du",
+        "Zizheng Guo",
+        "Xun Jiang",
+        "Zhuomin Chai",
+        "Yuxiang Zhao",
+        "Yibo Lin",
+        "Runsheng Wang",
+        "Ru Huang"
+      ],
       "venue": "DAC 2024",
       "venueFull": "Design Automation Conference",
       "year": 2024,
       "award": "",
       "pdf": "uploads/227_Camera_Ready_Paper.pdf"
+    },
+    {
+      "id": "23423441test",
+      "title": "test",
+      "authors": [
+        "234234"
+      ],
+      "venue": "DAC",
+      "venueFull": "",
+      "year": 41,
+      "award": "234",
+      "pdf": "123"
     }
   ],
   "experience": [
