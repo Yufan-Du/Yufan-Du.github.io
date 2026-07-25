@@ -174,6 +174,12 @@ def main():
     about_paras = "\n".join(f"      <p>{p}</p>" for p in c["about"]["paragraphs"])
     interests = "Interests: " + " · ".join(f"<em>{esc(i)}</em>" for i in c["about"]["interests"])
 
+    portraits = c["about"].get("portraits", [])
+    for p in portraits:
+        for ext in (".jpg", ".webp"):
+            f = SITE / "assets" / (Path(p["img"]).name + ext)
+            assert f.exists(), f"portrait missing: {f}"
+
     repl = {
         "{{TITLE}}": esc(c["meta"]["title"]),
         "{{DESCRIPTION}}": esc(c["meta"]["description"]),
@@ -181,6 +187,7 @@ def main():
         "{{NAME}}": esc(c["meta"]["name"]),
         "{{ROLE_LINE}}": render_role_line(c["about"]),
         "{{LINKS}}": render_links(c["meta"]),
+        "{{PORTRAITS}}": json.dumps(portraits, separators=(",", ":")),
         "{{ABOUT_PARAGRAPHS}}": about_paras,
         "{{INTERESTS}}": interests,
         "{{NEWS}}": render_news(c["news"]),

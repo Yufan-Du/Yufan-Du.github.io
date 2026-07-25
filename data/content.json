@@ -27,6 +27,11 @@
       "LLM serving systems",
       "ML for systems"
     ],
+    "portraits": [
+      { "img": "assets/portrait-1", "caption": "Grindelwald, Switzerland" },
+      { "img": "assets/portrait-2", "caption": "Busan, Korea" },
+      { "img": "assets/portrait-3", "caption": "Great Ocean Road, Australia" }
+    ],
     "education": [
       {
         "degree": "PhD in Computer Science",

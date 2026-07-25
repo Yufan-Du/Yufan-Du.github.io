@@ -97,6 +97,21 @@ header { position: relative; padding: clamp(1.2rem, 5vh, 3.2rem) 0 0; }
   -webkit-mask-image: radial-gradient(115% 100% at 100% 0%, #000 30%, transparent 72%);
   mask-image: radial-gradient(115% 100% at 100% 0%, #000 30%, transparent 72%);
 }
+/* a quiet signal travels the traces now and then */
+.traces .sig {
+  stroke-dasharray: 22 660;
+  stroke-dashoffset: 682;
+  animation: sig 9s linear infinite;
+  opacity: .9;
+}
+.traces .sig:nth-of-type(2) { animation-delay: 3s; }
+.traces .sig:nth-of-type(3) { animation-delay: 6s; }
+@keyframes sig {
+  0% { stroke-dashoffset: 682; }
+  38% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .traces .sig { animation: none; opacity: 0; } }
 h1 {
   font-size: clamp(2.5rem, 8vw, 3.7rem);
   font-weight: 560;
@@ -146,6 +161,7 @@ section { margin-top: clamp(2.6rem, 7vh, 4.2rem); }
 /* about */
 .about-grid { display: grid; grid-template-columns: 1fr auto; gap: 1.6rem 2.2rem; align-items: start; }
 .about-text p { margin: 0 0 1em; }
+.portrait-fig { margin: 0; }
 .portrait {
   width: clamp(7.5rem, 22vw, 10.5rem);
   height: auto;
@@ -153,7 +169,20 @@ section { margin-top: clamp(2.6rem, 7vh, 4.2rem); }
   border: 1px solid var(--hairline);
   box-shadow: 0 1px 0 var(--hairline), 0 12px 28px -18px rgba(60, 40, 20, .45);
   display: block;
+  cursor: pointer;
+  transition: opacity .18s ease;
 }
+.portrait-cap {
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .06em;
+  color: var(--ink-faint);
+  text-align: right;
+  padding-top: .35rem;
+  opacity: 0;
+  transition: opacity .25s ease .1s;
+}
+.portrait-fig:hover .portrait-cap { opacity: 1; }
 .interests { margin-top: .4rem; font-size: .93em; color: var(--ink-soft); }
 .interests em { color: var(--copper); font-style: normal; }
 @media (max-width: 620px) {
@@ -256,6 +285,11 @@ footer .dot-admin { border: none; color: inherit; cursor: pointer; }
       <path d="M262 150 V208 H208"/>
       <path d="M240 178 V236 H186"/>
     </g>
+    <g stroke="currentColor" stroke-width="1.3" fill="none">
+      <path class="sig" d="M420 24 H302 V96 H218 V58 H150"/>
+      <path class="sig" d="M420 108 H366 V220 H298 V178 H240"/>
+      <path class="sig" d="M420 62 H330 V150 H262"/>
+    </g>
     <g fill="currentColor" opacity=".5">
       <circle cx="150" cy="58" r="3"/>
       <circle cx="262" cy="150" r="3"/>
@@ -284,10 +318,36 @@ footer .dot-admin { border: none; color: inherit; cursor: pointer; }
       {{ABOUT_PARAGRAPHS}}
       <p class="interests">{{INTERESTS}}</p>
     </div>
-    <picture>
-      <source srcset="assets/portrait.webp" type="image/webp">
-      <img class="portrait" src="assets/portrait.jpg" alt="Portrait of {{NAME}}" width="640" height="814" loading="lazy">
-    </picture>
+    <figure class="portrait-fig">
+      <img class="portrait" id="portrait" src="assets/portrait-1.jpg" alt="Portrait of {{NAME}}"
+           width="640" height="814" title="there are more where this came from">
+      <figcaption class="portrait-cap" id="portrait-cap"></figcaption>
+    </figure>
+    <script>
+    (function () {
+      var P = {{PORTRAITS}};
+      if (!P.length) return;
+      var img = document.getElementById('portrait'), cap = document.getElementById('portrait-cap');
+      var last = +sessionStorage.getItem('yfd-p') || 0;
+      var i = Math.floor(Math.random() * P.length);
+      if (P.length > 1 && i === last) i = (i + 1) % P.length;  // always fresh vs last view
+      function show(n, instant) {
+        i = ((n % P.length) + P.length) % P.length;
+        sessionStorage.setItem('yfd-p', i);
+        var next = new Image();
+        next.src = P[i].img + '.webp';
+        next.onload = function () {
+          if (instant) { img.src = next.src; cap.textContent = P[i].caption; return; }
+          img.style.opacity = 0;
+          setTimeout(function () {
+            img.src = next.src; cap.textContent = P[i].caption; img.style.opacity = 1;
+          }, 180);
+        };
+      }
+      show(i, true);
+      img.addEventListener('click', function () { show(i + 1); });
+    })();
+    </script>
   </div>
 </section>
 
@@ -320,7 +380,7 @@ footer .dot-admin { border: none; color: inherit; cursor: pointer; }
 
 <footer>
   <span>© {{YEAR}} {{NAME}}<a class="dot-admin" href="admin/" aria-label="site admin">.</a></span>
-  <span>{{COLOPHON}} · <a href="map/">visitor map</a> · <a href="https://github.com/Yufan-Du/Yufan-Du.github.io">source</a></span>
+  <span>{{COLOPHON}} · <a href="map/">visitor map</a></span>
 </footer>
 
 </div>
@@ -332,6 +392,12 @@ footer .dot-admin { border: none; color: inherit; cursor: pointer; }
     buf = (buf + e.key).slice(-seq.length);
     if (buf === seq) location.href = 'admin/';
   });
+  /* for the curious — you found the right layer of the stack */
+  console.log(
+    '%c\n  ┌─────────────┐\n  │  ▪ YFD-5nm  │──● you probed the right pin.\n  │   rev 2026  │\n  └──┬──┬──┬──┬─┘\n     │  │  │  │\n%cHi — this page is one JSON file, one template, one Python script.\nNo framework was harmed. Curious how it works? Ask me: nbsdyf@hotmail.com\nP.S. the portrait is clickable, and the traces up top carry a signal.',
+    'color:#a2542c;font-family:monospace',
+    'color:inherit;font-family:monospace'
+  );
 })();
 </script>
 </body>
