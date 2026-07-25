@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESCRIPTION}}">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://yufandu.com/">
+<meta property="og:title" content="{{TITLE}}">
+<meta property="og:description" content="{{DESCRIPTION}}">
+<meta property="og:image" content="https://yufandu.com/assets/portrait.jpg">
+<meta property="og:url" content="https://yufandu.com/">
+<meta property="og:type" content="profile">
+<script type="application/ld+json">{{JSONLD}}</script>
+<style>
+/* ————— 铅字与铜 · Letterpress & Copper ————— */
+@font-face {
+  font-family: 'Newsreader';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('assets/newsreader-var.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Newsreader';
+  font-style: italic;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('assets/newsreader-var-italic.woff2') format('woff2');
+}
+:root {
+  --paper: #faf7f1;
+  --paper-high: #ffffff;
+  --ink: #211d19;
+  --ink-soft: #57504a;
+  --ink-faint: #8d857c;
+  --hairline: #e3dcd2;
+  --copper: #a2542c;
+  --copper-soft: #b96e44;
+  --copper-wash: #f3e6dc;
+  --serif: 'Newsreader', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+  --mono: ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #191512;
+    --paper-high: #211c18;
+    --ink: #eae3d8;
+    --ink-soft: #b3a99c;
+    --ink-faint: #7d746a;
+    --hairline: #322b25;
+    --copper: #d18f62;
+    --copper-soft: #b97a50;
+    --copper-wash: #2b211a;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(16.5px, 1vw + 12px, 18.5px);
+  line-height: 1.62;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--copper-wash); color: var(--copper); }
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--copper) 45%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2.5px;
+  transition: color .15s ease, text-decoration-color .15s ease;
+}
+a:hover { color: var(--copper); text-decoration-color: var(--copper); }
+
+.page {
+  max-width: 44.5rem;
+  margin: 0 auto;
+  padding: clamp(1.4rem, 4vw, 3rem) clamp(1.2rem, 4vw, 2rem) 2rem;
+}
+
+/* ————— header ————— */
+header { position: relative; padding: clamp(1.2rem, 5vh, 3.2rem) 0 0; }
+.traces {
+  position: absolute;
+  top: 0; right: -1rem;
+  width: min(46%, 21rem);
+  color: var(--copper);
+  opacity: .55;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(115% 100% at 100% 0%, #000 30%, transparent 72%);
+  mask-image: radial-gradient(115% 100% at 100% 0%, #000 30%, transparent 72%);
+}
+h1 {
+  font-size: clamp(2.5rem, 8vw, 3.7rem);
+  font-weight: 560;
+  letter-spacing: -0.015em;
+  line-height: 1.04;
+  margin: 0 0 .55rem;
+}
+.masthead-role {
+  font-size: 1.02em;
+  color: var(--ink-soft);
+  margin: 0 0 1.1rem;
+  font-style: italic;
+}
+.masthead-role a { text-decoration-color: color-mix(in srgb, var(--ink-faint) 45%, transparent); }
+nav.links {
+  font-family: var(--mono);
+  font-size: .74rem;
+  letter-spacing: .04em;
+  color: var(--ink-soft);
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem 1.35rem;
+  padding: .75rem 0;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+nav.links a { text-decoration: none; color: inherit; }
+nav.links a:hover { color: var(--copper); }
+
+/* ————— sections ————— */
+section { margin-top: clamp(2.6rem, 7vh, 4.2rem); }
+.sec-label {
+  display: flex;
+  align-items: baseline;
+  gap: .8rem;
+  font-family: var(--mono);
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 1.5rem;
+}
+.sec-label::after { content: ''; flex: 1; border-top: 1px solid var(--hairline); transform: translateY(-.22em); }
+.sec-label .idx { color: var(--copper); font-weight: 400; }
+
+/* about */
+.about-grid { display: grid; grid-template-columns: 1fr auto; gap: 1.6rem 2.2rem; align-items: start; }
+.about-text p { margin: 0 0 1em; }
+.portrait {
+  width: clamp(7.5rem, 22vw, 10.5rem);
+  border-radius: 3px;
+  border: 1px solid var(--hairline);
+  box-shadow: 0 1px 0 var(--hairline), 0 12px 28px -18px rgba(60, 40, 20, .45);
+  display: block;
+}
+.interests { margin-top: .4rem; font-size: .93em; color: var(--ink-soft); }
+.interests em { color: var(--copper); font-style: normal; }
+@media (max-width: 620px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .portrait { order: -1; }
+}
+
+/* news */
+.news { list-style: none; margin: 0; padding: 0; }
+.news li { display: grid; grid-template-columns: 5.4rem 1fr; gap: 1.1rem; padding: .44rem 0; }
+.news time {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .03em;
+  color: var(--ink-faint);
+  padding-top: .34em;
+  white-space: nowrap;
+}
+.news time::before { content: '●'; color: var(--copper); font-size: .55em; margin-right: .7em; vertical-align: .22em; }
+.news .more { color: var(--ink-faint); font-size: .9em; font-style: italic; }
+
+/* publications */
+.pubyear { display: grid; grid-template-columns: 5.4rem 1fr; gap: 1.1rem; margin-bottom: .4rem; }
+.pubyear > .y {
+  font-size: 1.5rem; font-weight: 430; color: var(--ink-faint);
+  font-variant-numeric: oldstyle-nums; line-height: 1.3;
+}
+.pub { margin-bottom: 1.35rem; }
+.pub:last-child { margin-bottom: .6rem; }
+.pub .t { font-size: 1.06em; font-weight: 560; line-height: 1.38; margin: 0; }
+.pub .t a { text-decoration: none; }
+.pub .t a:hover { color: var(--copper); }
+.pub .a { margin: .16rem 0 0; color: var(--ink-soft); font-size: .93em; }
+.pub .a b { font-weight: 600; color: var(--ink); }
+.pub .m {
+  margin: .2rem 0 0;
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .05em;
+  color: var(--ink-faint);
+  display: flex; flex-wrap: wrap; gap: .3rem 1.2rem;
+}
+.pub .m .award { color: var(--copper); }
+.pub .m .award::before { content: '✦ '; }
+.pub .m a { text-decoration: none; color: inherit; border-bottom: 1px solid var(--hairline); }
+.pub .m a:hover { color: var(--copper); border-color: var(--copper); }
+.eqnote { font-size: .78em; color: var(--ink-faint); font-style: italic; }
+
+/* experience */
+.exp { list-style: none; margin: 0; padding: 0; }
+.exp li { display: grid; grid-template-columns: 5.4rem 1fr; gap: 1.1rem; padding: .55rem 0; }
+.exp time { font-family: var(--mono); font-size: .72rem; color: var(--ink-faint); padding-top: .3em; line-height: 1.75; }
+.exp .r { font-weight: 560; }
+.exp .o { color: var(--ink-soft); }
+.exp .n { color: var(--ink-soft); font-size: .93em; margin-top: .1rem; }
+
+/* projects */
+.projects { list-style: none; margin: 0; padding: 0; }
+.projects li { padding: .5rem 0; border-bottom: 1px solid var(--hairline); }
+.projects li:last-child { border-bottom: none; }
+.projects .pn { font-weight: 560; }
+.projects .pd { color: var(--ink-soft); font-size: .93em; }
+
+/* footer */
+footer {
+  margin-top: clamp(3rem, 9vh, 5rem);
+  padding: 1.1rem 0 0;
+  border-top: 1px solid var(--hairline);
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .04em;
+  color: var(--ink-faint);
+  display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; justify-content: space-between;
+}
+footer a { text-decoration: none; color: inherit; border-bottom: 1px solid var(--hairline); }
+footer a:hover { color: var(--copper); border-color: var(--copper); }
+footer .dot-admin { border: none; color: inherit; cursor: pointer; }
+
+@media (max-width: 620px) {
+  .news li, .exp li, .pubyear { grid-template-columns: 1fr; gap: .1rem; }
+  .pubyear > .y { font-size: 1.1rem; border-bottom: 1px dotted var(--hairline); margin-bottom: .5rem; }
+}
+@media print {
+  .traces { display: none; }
+  body { background: #fff; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <svg class="traces" viewBox="0 0 420 300" fill="none" aria-hidden="true">
+    <g stroke="currentColor" stroke-width="1.1" opacity=".34">
+      <path d="M420 24 H302 V96 H218 V58 H150"/>
+      <path d="M420 62 H330 V150 H262"/>
+      <path d="M420 108 H366 V220 H298 V178 H240"/>
+      <path d="M420 156 H388 V262 H330"/>
+      <path d="M302 24 V8"/>
+      <path d="M262 150 V208 H208"/>
+      <path d="M240 178 V236 H186"/>
+    </g>
+    <g fill="currentColor" opacity=".5">
+      <circle cx="150" cy="58" r="3"/>
+      <circle cx="262" cy="150" r="3"/>
+      <circle cx="218" cy="96" r="3"/>
+      <circle cx="240" cy="178" r="3"/>
+      <circle cx="330" cy="262" r="3"/>
+      <circle cx="208" cy="208" r="3"/>
+      <circle cx="186" cy="236" r="3"/>
+      <circle cx="298" cy="220" r="3"/>
+    </g>
+    <g fill="none" stroke="currentColor" stroke-width="1.1" opacity=".34">
+      <rect x="144" y="52" width="12" height="12"/>
+      <rect x="180" y="230" width="12" height="12"/>
+    </g>
+  </svg>
+  <h1>{{NAME}}</h1>
+  <p class="masthead-role">{{ROLE_LINE}}</p>
+  <nav class="links">{{LINKS}}</nav>
+</header>
+
+<main>
+<section id="about">
+  <div class="sec-label"><span class="idx">01</span><span>About</span></div>
+  <div class="about-grid">
+    <div class="about-text">
+      {{ABOUT_PARAGRAPHS}}
+      <p class="interests">{{INTERESTS}}</p>
+    </div>
+    <picture>
+      <source srcset="assets/portrait.webp" type="image/webp">
+      <img class="portrait" src="assets/portrait.jpg" alt="Portrait of {{NAME}}" width="640" height="814" loading="lazy">
+    </picture>
+  </div>
+</section>
+
+<section id="news">
+  <div class="sec-label"><span class="idx">02</span><span>News</span></div>
+  <ul class="news">
+{{NEWS}}
+  </ul>
+</section>
+
+<section id="publications">
+  <div class="sec-label"><span class="idx">03</span><span>Publications</span></div>
+{{PUBLICATIONS}}
+</section>
+
+<section id="experience">
+  <div class="sec-label"><span class="idx">04</span><span>Experience</span></div>
+  <ul class="exp">
+{{EXPERIENCE}}
+  </ul>
+</section>
+
+<section id="projects">
+  <div class="sec-label"><span class="idx">05</span><span>Selected Projects</span></div>
+  <ul class="projects">
+{{PROJECTS}}
+  </ul>
+</section>
+</main>
+
+<footer>
+  <span>© {{YEAR}} {{NAME}}<a class="dot-admin" href="admin/" aria-label="site admin">.</a></span>
+  <span>{{COLOPHON}} · <a href="map/">visitor map</a> · <a href="https://github.com/Yufan-Du/Yufan-Du.github.io">source</a></span>
+</footer>
+
+</div>
+<script>
+(function () {
+  var seq = 'chip', buf = '';
+  addEventListener('keydown', function (e) {
+    if (e.target !== document.body) return;
+    buf = (buf + e.key).slice(-seq.length);
+    if (buf === seq) location.href = 'admin/';
+  });
+})();
+</script>
+</body>
+</html>

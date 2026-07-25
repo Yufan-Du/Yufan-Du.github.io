@@ -1,0 +1,151 @@
+{
+  "meta": {
+    "name": "Yufan Du",
+    "title": "Yufan Du — PhD Student, UCLA Computer Science",
+    "description": "Yufan Du is a PhD student at UCLA advised by Jason Cong, working on domain-specific accelerators, compilers, and LLM serving systems.",
+    "email": "nbsdyf@hotmail.com",
+    "scholar": "",
+    "github": "https://github.com/Yufan-Du",
+    "linkedin": "https://www.linkedin.com/in/yufan-du-3492172a2/",
+    "highlightAuthor": "Yufan Du"
+  },
+  "about": {
+    "role": "PhD Student in Computer Science",
+    "affiliation": "UCLA",
+    "affiliationUrl": "https://ucla.edu/",
+    "lab": "VAST Lab",
+    "labUrl": "https://vast.cs.ucla.edu/",
+    "advisor": "Jason Cong",
+    "advisorUrl": "https://vast.cs.ucla.edu/people/faculty/jason-cong",
+    "paragraphs": [
+      "I am a first-year PhD student in Computer Science at <a href=\"https://ucla.edu/\">UCLA</a>, advised by Prof. <a href=\"https://vast.cs.ucla.edu/people/faculty/jason-cong\">Jason Cong</a> in the <a href=\"https://vast.cs.ucla.edu/\">VAST lab</a>. I work on the layer where hardware and software meet: domain-specific accelerators, the compilers that target them, and the systems that serve large language models.",
+      "Before UCLA, I studied applied physics and computer science at <a href=\"https://english.pku.edu.cn/\">Peking University</a>, where I worked on differentiable optimization for chip physical design — teaching gradient descent to place and size logic gates. I also spent a summer at UT Austin with Prof. <a href=\"https://users.ece.utexas.edu/~dpan/\">David Z. Pan</a>'s group working on gate sizing."
+    ],
+    "interests": [
+      "Domain-specific accelerators",
+      "Compilers",
+      "LLM serving systems",
+      "ML for systems"
+    ],
+    "education": [
+      { "degree": "PhD in Computer Science", "school": "University of California, Los Angeles", "years": "2025 –" },
+      { "degree": "BSc in Computer Science", "school": "Peking University", "years": "2021 – 2025" },
+      { "degree": "BSc in Applied Physics", "school": "Peking University", "years": "2021 – 2025" }
+    ]
+  },
+  "news": [
+    { "date": "2026-06", "text": "Our DAC 2026 paper on quad-gradient gate sizing was nominated for <em>Best Paper</em>." },
+    { "date": "2026-06", "text": "Started as an Applied Scientist Intern at <a href=\"https://aws.amazon.com/\">AWS</a> in San Jose, working on multi-node, multi-GPU LLM serving." },
+    { "date": "2025-09", "text": "Joined <a href=\"https://vast.cs.ucla.edu/\">UCLA VAST lab</a> as a PhD student." },
+    { "date": "2025-05", "text": "Our ISEDA 2025 paper on differentiable gate sizing received an <em>Honorable Mention Paper Award</em>." },
+    { "date": "2024-10", "text": "Our team won <em>first place</em> (out of 45 teams worldwide) in ICCAD 2024 Contest Problem C — scalable gate sizing with ML and GPU acceleration." }
+  ],
+  "publications": [
+    {
+      "id": "pan2026quad",
+      "title": "Disentangled Differentiable Timing-Power Co-Optimization with Quad-Gradient Gate Sizing",
+      "authors": ["Zixuan Pan*", "Zizheng Guo*", "Yufan Du", "Runsheng Wang", "Yibo Lin"],
+      "venue": "DAC 2026",
+      "venueFull": "ACM/IEEE Design Automation Conference",
+      "year": 2026,
+      "award": "Best Paper Nominee",
+      "pdf": ""
+    },
+    {
+      "id": "du2025physicalopt",
+      "title": "Differentiable Physical Optimization",
+      "authors": ["Yufan Du", "Zizheng Guo", "Runsheng Wang", "Yibo Lin"],
+      "venue": "ICCAD 2025",
+      "venueFull": "IEEE/ACM International Conference on Computer-Aided Design",
+      "year": 2025,
+      "award": "",
+      "pdf": "uploads/DiffPhyOpt_iccad25.pdf"
+    },
+    {
+      "id": "du2025addressing",
+      "title": "Addressing Continuity and Expressivity Limitations in Differentiable Physical Optimization: A Case Study in Gate Sizing",
+      "authors": ["Yufan Du", "Zizheng Guo", "Yang Hsu", "Zhili Xiong", "Seunggeun Kim", "David Z. Pan", "Runsheng Wang", "Yibo Lin"],
+      "venue": "ISEDA 2025",
+      "venueFull": "International Symposium of Electronics Design Automation",
+      "year": 2025,
+      "award": "Honorable Mention Paper Award",
+      "pdf": "uploads/ISEDA25_DiffSizing.pdf"
+    },
+    {
+      "id": "du2024fusion",
+      "title": "Fusion of Global Placement and Gate Sizing with Differentiable Optimization",
+      "authors": ["Yufan Du", "Zizheng Guo", "Yibo Lin", "Runsheng Wang", "Ru Huang"],
+      "venue": "ICCAD 2024",
+      "venueFull": "IEEE/ACM International Conference on Computer-Aided Design",
+      "year": 2024,
+      "award": "Best Paper Nominee",
+      "pdf": "uploads/fusionsizericcad-24.pdf"
+    },
+    {
+      "id": "guo2024heteroexcept",
+      "title": "HeteroExcept: A CPU-GPU Heterogeneous Algorithm to Accelerate Exception-aware Static Timing Analysis",
+      "authors": ["Zizheng Guo", "Zuodong Zhang", "Wuxi Li", "Tsung-Wei Huang", "Xizhe Shi", "Yufan Du", "Yibo Lin", "Runsheng Wang", "Ru Huang"],
+      "venue": "ICCAD 2024",
+      "venueFull": "IEEE/ACM International Conference on Computer-Aided Design",
+      "year": 2024,
+      "award": "",
+      "pdf": "uploads/ICCAD_2024_heteroexcepticc.pdf"
+    },
+    {
+      "id": "du2024powpredict",
+      "title": "PowPrediCT: Cross-Stage Power Prediction with Circuit-Transformation-Aware Learning",
+      "authors": ["Yufan Du", "Zizheng Guo", "Xun Jiang", "Zhuomin Chai", "Yuxiang Zhao", "Yibo Lin", "Runsheng Wang", "Ru Huang"],
+      "venue": "DAC 2024",
+      "venueFull": "Design Automation Conference",
+      "year": 2024,
+      "award": "",
+      "pdf": "uploads/227_Camera_Ready_Paper.pdf"
+    }
+  ],
+  "experience": [
+    {
+      "role": "Applied Scientist Intern",
+      "org": "Amazon Web Services",
+      "orgUrl": "https://aws.amazon.com/",
+      "location": "San Jose, CA",
+      "start": "2026-06",
+      "end": "",
+      "note": "Multi-node, multi-GPU LLM serving optimization."
+    },
+    {
+      "role": "Undergraduate Research Intern",
+      "org": "UT Austin",
+      "orgUrl": "https://www.utexas.edu/",
+      "location": "Austin, TX",
+      "start": "2024-06",
+      "end": "2024-09",
+      "note": "Differentiable algorithms for chip physical design, with Prof. David Z. Pan's group."
+    }
+  ],
+  "projects": [
+    {
+      "name": "ICCAD 2024 CAD Contest, Problem C — First Place",
+      "url": "",
+      "note": "Scalable logic gate sizing with ML techniques and GPU acceleration; our solution ranked first among 45 teams worldwide."
+    },
+    {
+      "name": "GPU-accelerated gate-level circuit simulation",
+      "url": "",
+      "note": "CUDA kernels exploiting low switching activity to accelerate gate-level simulation of large VLSI designs."
+    },
+    {
+      "name": "SysY → RISC-V compiler",
+      "url": "",
+      "note": "A complete compiler from SysY (a C subset) to RISC-V assembly: lexing, parsing, IR, optimization passes, codegen."
+    },
+    {
+      "name": "FPGA snake game with computer vision",
+      "url": "",
+      "note": "Classic snake plus a CV-based 3D human-computer interface, squeezed onto a resource-limited FPGA."
+    }
+  ],
+  "footer": {
+    "visitorsMapScript": "https://mapmyvisitors.com/map.js?cl=ffffff&w=400&t=n&d=cIGsXvSGr9e_Cz3o-ka7A2RlK4DVRQSZSOiWZ4y8Q5w",
+    "colophon": "Set in Newsreader. No trackers, no frameworks, one JSON file."
+  }
+}

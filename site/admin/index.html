@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Composing room — yufandu.com</title>
+<style>
+:root {
+  --paper: #faf7f1; --paper-high: #ffffff; --ink: #211d19; --ink-soft: #57504a;
+  --ink-faint: #8d857c; --hairline: #e3dcd2; --copper: #a2542c; --copper-wash: #f3e6dc;
+  --ok: #3d7a45; --err: #a33232;
+  --serif: 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+  --mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --paper:#191512; --paper-high:#211c18; --ink:#eae3d8; --ink-soft:#b3a99c;
+    --ink-faint:#7d746a; --hairline:#322b25; --copper:#d18f62; --copper-wash:#2b211a;
+    --ok:#7fb886; --err:#d98080; }
+}
+* { box-sizing: border-box; }
+body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+  font-size:16px; line-height:1.55; }
+.wrap { max-width: 46rem; margin: 0 auto; padding: 2rem 1.2rem 4rem; }
+h1 { font-weight: 560; font-size: 1.7rem; margin: 0; }
+h1 small { font-size:.6em; color: var(--ink-faint); font-weight:400; font-style: italic; }
+a { color: var(--copper); }
+.sub { color: var(--ink-faint); font-size:.85em; margin:.2rem 0 1.6rem; }
+fieldset { border:1px solid var(--hairline); border-radius:4px; margin:0 0 1.4rem; padding:1rem 1.1rem; }
+legend { font-family:var(--mono); font-size:.68rem; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-faint); padding:0 .5em; }
+label { display:block; font-family:var(--mono); font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); margin:.7rem 0 .15rem; }
+input[type=text], input[type=password], textarea, select {
+  width:100%; font:inherit; font-size:.92em; color:var(--ink); background:var(--paper-high);
+  border:1px solid var(--hairline); border-radius:3px; padding:.45em .6em; }
+textarea { font-family: var(--mono); font-size:.78em; line-height:1.5; min-height:9em; }
+input:focus, textarea:focus, select:focus { outline:none; border-color:var(--copper); }
+button { font:inherit; font-size:.85em; cursor:pointer; border-radius:3px; padding:.4em 1em;
+  border:1px solid var(--hairline); background:var(--paper-high); color:var(--ink); }
+button:hover { border-color: var(--copper); color: var(--copper); }
+button.primary { background: var(--copper); border-color: var(--copper); color: #fff; font-weight:600; }
+button.primary:hover { filter: brightness(1.08); color:#fff; }
+button.danger:hover { border-color: var(--err); color: var(--err); }
+button:disabled { opacity:.45; cursor: default; }
+.row { display:flex; gap:.8rem; flex-wrap:wrap; }
+.row > * { flex:1; min-width: 9rem; }
+.item { display:flex; gap:.7rem; align-items:baseline; padding:.45rem 0; border-bottom:1px dotted var(--hairline); }
+.item:last-child { border-bottom:none; }
+.item .txt { flex:1; }
+.item .t { font-weight:600; }
+.item .m { font-family:var(--mono); font-size:.66rem; color:var(--ink-faint); letter-spacing:.04em; }
+.item button { font-size:.7em; padding:.25em .7em; }
+.bar { position:sticky; bottom:0; background:var(--paper); border-top:1px solid var(--hairline);
+  padding:.8rem 0; display:flex; gap:1rem; align-items:center; }
+#status { font-family:var(--mono); font-size:.72rem; letter-spacing:.03em; color:var(--ink-faint); flex:1; }
+#status.ok { color: var(--ok); } #status.err { color: var(--err); }
+.pill { font-family:var(--mono); font-size:.62rem; letter-spacing:.08em; padding:.15em .6em;
+  border:1px solid var(--hairline); border-radius:99px; color:var(--ink-faint); }
+.pill.on { border-color: var(--ok); color: var(--ok); }
+details.raw { margin-top:.6rem; }
+details.raw summary { font-family:var(--mono); font-size:.7rem; color:var(--ink-faint); cursor:pointer; }
+.hint { font-size:.8em; color:var(--ink-faint); font-style:italic; margin:.3rem 0 0; }
+#gate { max-width: 30rem; margin: 14vh auto 0; padding: 0 1.2rem; }
+#gate .card { border:1px solid var(--hairline); border-radius:6px; background:var(--paper-high); padding:1.6rem; }
+.hidden { display:none !important; }
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="card">
+    <h1>Composing room <small>· the type is loose</small></h1>
+    <p class="sub">This is the editing desk for yufandu.com. It needs a GitHub
+      fine-grained token scoped to <code>Yufan-Du/Yufan-Du.github.io</code> with
+      <em>Contents: read&nbsp;and&nbsp;write</em>. The token stays in this browser
+      (<code>localStorage</code>) and talks to the GitHub API directly — there is no server.</p>
+    <label for="tok">personal access token</label>
+    <input type="password" id="tok" autocomplete="off" placeholder="github_pat_…">
+    <p class="hint">Create one at github.com → Settings → Developer settings → Fine-grained tokens.</p>
+    <p style="margin-top:1rem"><button class="primary" id="unlock">Unlock</button>
+       <span id="gate-status" style="font-size:.8em;color:var(--err)"></span></p>
+  </div>
+</div>
+
+<div class="wrap hidden" id="desk">
+  <h1>Composing room</h1>
+  <p class="sub">
+    <span class="pill" id="who">…</span>
+    <span class="pill on">data/content.json</span>
+    <button style="font-size:.65em" id="forget">forget token</button>
+  </p>
+
+  <fieldset>
+    <legend>Add a publication</legend>
+    <label>title</label><input type="text" id="p-title">
+    <div class="row">
+      <div><label>venue (short, e.g. DAC 2027)</label><input type="text" id="p-venue"></div>
+      <div><label>year</label><input type="text" id="p-year" inputmode="numeric"></div>
+    </div>
+    <label>authors — comma separated, use * for equal contribution</label>
+    <input type="text" id="p-authors" placeholder="Yufan Du, Zizheng Guo, …">
+    <div class="row">
+      <div><label>award (optional)</label><input type="text" id="p-award" placeholder="Best Paper Nominee"></div>
+      <div><label>pdf path (optional)</label><input type="text" id="p-pdf" placeholder="uploads/mypaper.pdf"></div>
+    </div>
+    <p class="hint">To host the PDF, add the file under <code>site/uploads/</code> in the repo (github.com → Add file → Upload), then put <code>uploads/filename.pdf</code> here.</p>
+    <p style="margin-top:.8rem"><button id="p-add">Add publication</button></p>
+  </fieldset>
+
+  <fieldset>
+    <legend>Add a news item</legend>
+    <div class="row">
+      <div><label>month (YYYY-MM)</label><input type="text" id="n-date" placeholder="2026-08"></div>
+    </div>
+    <label>text — inline HTML allowed (&lt;a&gt;, &lt;em&gt;)</label>
+    <input type="text" id="n-text" placeholder="Our paper on … was accepted to <em>XYZ 2027</em>.">
+    <p style="margin-top:.8rem"><button id="n-add">Add news</button></p>
+  </fieldset>
+
+  <fieldset>
+    <legend>Current content</legend>
+    <div id="list-pubs"></div>
+    <div id="list-news" style="margin-top:1rem"></div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Everything else — bio, experience, projects, links</legend>
+    <p class="hint">Direct JSON. Edits here cover every field on the site; invalid JSON refuses to save.</p>
+    <details class="raw" open>
+      <summary>content.json</summary>
+      <textarea id="raw" spellcheck="false" style="min-height:22em"></textarea>
+    </details>
+  </fieldset>
+
+  <div class="bar">
+    <span id="status">loaded</span>
+    <button id="revert">Revert</button>
+    <button class="primary" id="save">Commit &amp; publish</button>
+  </div>
+</div>
+
+<script>
+'use strict';
+const OWNER = 'Yufan-Du', REPO = 'Yufan-Du.github.io', PATH = 'data/content.json', BRANCH = 'main';
+const API = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${encodeURIComponent(PATH)}`;
+const LS = 'yfd-admin-token';
+
+let token = localStorage.getItem(LS) || '';
+let sha = null;        // blob sha of content.json at load time
+let doc = null;        // parsed content
+let dirty = false;
+
+const $ = id => document.getElementById(id);
+const status = (msg, cls) => { const s = $('status'); s.textContent = msg; s.className = cls || ''; };
+
+const b64encode = s => {
+  const bytes = new TextEncoder().encode(s);
+  let bin = ''; bytes.forEach(b => bin += String.fromCharCode(b));
+  return btoa(bin);
+};
+const b64decode = s => new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\n/g,'')), c => c.charCodeAt(0)));
+
+async function gh(url, opts = {}) {
+  const r = await fetch(url, { ...opts, headers: {
+    'Authorization': `Bearer ${token}`,
+    'Accept': 'application/vnd.github+json',
+    'X-GitHub-Api-Version': '2022-11-28',
+    ...(opts.headers || {}) } });
+  if (!r.ok) throw new Error(`${r.status} ${(await r.json().catch(()=>({}))).message || r.statusText}`);
+  return r.json();
+}
+
+async function unlock() {
+  token = $('tok').value.trim();
+  if (!token) return;
+  $('gate-status').textContent = 'checking…';
+  try {
+    const me = await gh('https://api.github.com/user');
+    localStorage.setItem(LS, token);
+    $('who').textContent = '@' + me.login;
+    await load();
+    $('gate').classList.add('hidden');
+    $('desk').classList.remove('hidden');
+  } catch (e) {
+    $('gate-status').textContent = 'token rejected: ' + e.message;
+  }
+}
+
+async function load() {
+  const f = await gh(`${API}?ref=${BRANCH}`);
+  sha = f.sha;
+  doc = JSON.parse(b64decode(f.content));
+  $('raw').value = JSON.stringify(doc, null, 2);
+  renderLists();
+  dirty = false;
+  status(`loaded @ ${sha.slice(0,7)}`);
+}
+
+function currentDoc() {
+  // raw textarea is the source of truth; structured widgets write into it
+  return JSON.parse($('raw').value);
+}
+function setDoc(d) {
+  doc = d;
+  $('raw').value = JSON.stringify(d, null, 2);
+  renderLists();
+  dirty = true;
+  status('unsaved changes');
+}
+
+function renderLists() {
+  const pubs = doc.publications.slice().sort((a,b) => b.year - a.year);
+  $('list-pubs').innerHTML = '<div class="m" style="margin-bottom:.3rem">PUBLICATIONS</div>' +
+    pubs.map(p => `<div class="item"><div class="txt"><span class="t">${escapeHtml(p.title)}</span>
+      <div class="m">${escapeHtml(p.venue)}${p.award ? ' · ✦ ' + escapeHtml(p.award) : ''}</div></div>
+      <button class="danger" data-del-pub="${escapeHtml(p.id)}">delete</button></div>`).join('');
+  const news = doc.news.slice().sort((a,b) => b.date.localeCompare(a.date));
+  $('list-news').innerHTML = '<div class="m" style="margin-bottom:.3rem">NEWS</div>' +
+    news.map((n,i) => `<div class="item"><div class="txt"><span class="m">${escapeHtml(n.date)}</span>
+      ${n.text}</div><button class="danger" data-del-news="${escapeHtml(n.date)}|${i}">delete</button></div>`).join('');
+}
+function escapeHtml(s) { return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+document.addEventListener('click', e => {
+  const dp = e.target.getAttribute?.('data-del-pub');
+  if (dp) { const d = currentDoc(); d.publications = d.publications.filter(p => p.id !== dp); setDoc(d); }
+  const dn = e.target.getAttribute?.('data-del-news');
+  if (dn) {
+    const d = currentDoc();
+    const sorted = d.news.slice().sort((a,b) => b.date.localeCompare(a.date));
+    const victim = sorted[Number(dn.split('|')[1])];
+    const idx = d.news.findIndex(n => JSON.stringify(n) === JSON.stringify(victim));
+    if (idx >= 0) d.news.splice(idx, 1);
+    setDoc(d);
+  }
+});
+
+$('p-add').onclick = () => {
+  try {
+    const d = currentDoc();
+    const title = $('p-title').value.trim(), venue = $('p-venue').value.trim();
+    const year = parseInt($('p-year').value.trim(), 10);
+    const authors = $('p-authors').value.split(',').map(s => s.trim()).filter(Boolean);
+    if (!title || !venue || !year || !authors.length) { status('publication needs title, venue, year, authors', 'err'); return; }
+    const id = (authors[0].split(' ').pop() + year + title.split(' ')[0]).toLowerCase().replace(/[^a-z0-9]/g,'');
+    d.publications.push({ id, title, authors, venue,
+      venueFull: '', year, award: $('p-award').value.trim(), pdf: $('p-pdf').value.trim() });
+    setDoc(d);
+    ['p-title','p-venue','p-year','p-authors','p-award','p-pdf'].forEach(i => $(i).value = '');
+  } catch (e) { status('raw JSON is invalid — fix it first: ' + e.message, 'err'); }
+};
+
+$('n-add').onclick = () => {
+  try {
+    const d = currentDoc();
+    const date = $('n-date').value.trim(), text = $('n-text').value.trim();
+    if (!/^\d{4}-\d{2}$/.test(date) || !text) { status('news needs YYYY-MM date and text', 'err'); return; }
+    d.news.push({ date, text });
+    setDoc(d);
+    $('n-date').value = ''; $('n-text').value = '';
+  } catch (e) { status('raw JSON is invalid — fix it first: ' + e.message, 'err'); }
+};
+
+$('raw').addEventListener('input', () => { dirty = true; status('unsaved changes'); });
+$('raw').addEventListener('change', () => {
+  try { doc = currentDoc(); renderLists(); status('unsaved changes'); }
+  catch (e) { status('JSON parse error: ' + e.message, 'err'); }
+});
+
+$('save').onclick = async () => {
+  let d;
+  try { d = currentDoc(); } catch (e) { status('cannot save — invalid JSON: ' + e.message, 'err'); return; }
+  $('save').disabled = true;
+  status('committing…');
+  try {
+    const body = JSON.stringify(d, null, 2) + '\n';
+    const res = await gh(API, { method: 'PUT', body: JSON.stringify({
+      message: 'content: update via composing room',
+      content: b64encode(body), sha, branch: BRANCH }) });
+    sha = res.content.sha;
+    doc = d; dirty = false;
+    status(`committed ${res.commit.sha.slice(0,7)} — site rebuilds in ~1 min`, 'ok');
+  } catch (e) {
+    status('commit failed: ' + e.message + (e.message.includes('409') ? ' — file changed elsewhere; Revert and redo' : ''), 'err');
+  } finally { $('save').disabled = false; }
+};
+
+$('revert').onclick = () => load().catch(e => status('reload failed: ' + e.message, 'err'));
+$('forget').onclick = () => { localStorage.removeItem(LS); location.reload(); };
+$('unlock').onclick = unlock;
+$('tok').addEventListener('keydown', e => { if (e.key === 'Enter') unlock(); });
+addEventListener('beforeunload', e => { if (dirty) e.preventDefault(); });
+
+if (token) { $('tok').value = token; unlock(); }
+</script>
+</body>
+</html>
