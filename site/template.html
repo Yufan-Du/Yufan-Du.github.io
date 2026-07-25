@@ -204,6 +204,85 @@ section { margin-top: clamp(2.6rem, 7vh, 4.2rem); }
 .news time::before { content: '●'; color: var(--copper); font-size: .55em; margin-right: .7em; vertical-align: .22em; }
 .news .more { color: var(--ink-faint); font-size: .9em; font-style: italic; }
 
+/* research route — the signal path between About and News */
+.route {
+  display: flex; align-items: center; flex-wrap: wrap;
+  gap: .5rem .65rem;
+  margin: clamp(2.2rem, 6vh, 3.4rem) 0 0;
+  font-size: .95em;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+.route .w { white-space: nowrap; }
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+  .route .w {
+    background: linear-gradient(100deg,
+      var(--ink-soft) 0%, var(--ink-soft) 38%,
+      var(--copper) 47%, var(--copper-soft) 50%, var(--copper) 53%,
+      var(--ink-soft) 62%, var(--ink-soft) 100%);
+    background-size: 300% 100%;
+    background-position: 100% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: routeword var(--cycle) linear infinite;
+    animation-delay: var(--d);
+  }
+}
+@keyframes routeword {
+  0%   { background-position: 100% 0; }
+  14%  { background-position: 0% 0; }
+  100% { background-position: 0% 0; }
+}
+.route .wire {
+  flex: 1 1 1.3rem;
+  min-width: 1.3rem;
+  height: 1px;
+  background: var(--hairline);
+  position: relative;
+}
+.route .wire::after {
+  content: '';
+  position: absolute;
+  top: -1px; left: 0;
+  width: 13px; height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, var(--copper));
+  opacity: 0;
+  animation: wiresig var(--cycle) linear infinite;
+  animation-delay: var(--d);
+}
+@keyframes wiresig {
+  0%   { left: 0; opacity: 0; }
+  1.5% { opacity: .95; }
+  10%  { opacity: .95; }
+  12%  { left: calc(100% - 13px); opacity: 0; }
+  100% { left: calc(100% - 13px); opacity: 0; }
+}
+.route .term { flex: 0 0 1.5rem; min-width: 1.5rem; }
+.route .term::before {
+  content: '';
+  position: absolute;
+  right: -3px; top: -3px;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--copper);
+  opacity: .35;
+  animation: viapulse var(--cycle) ease-out infinite;
+  animation-delay: var(--d);
+}
+@keyframes viapulse {
+  0%, 10% { opacity: .35; box-shadow: 0 0 0 0 color-mix(in srgb, var(--copper) 45%, transparent); }
+  14% { opacity: 1; box-shadow: 0 0 0 7px color-mix(in srgb, var(--copper) 0%, transparent); }
+  30%, 100% { opacity: .35; box-shadow: 0 0 0 0 transparent; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .route .w { animation: none; background-position: 100% 0; }
+  .route .wire::after, .route .term::before { animation: none; opacity: 0; }
+  .route .term::before { opacity: .35; }
+}
+
 /* publications */
 .pubyear { display: grid; grid-template-columns: 5.4rem 1fr; gap: 1.1rem; margin-bottom: .4rem; }
 .pubyear > .y {
@@ -227,6 +306,7 @@ section { margin-top: clamp(2.6rem, 7vh, 4.2rem); }
 }
 .pub .m .award { color: var(--copper); }
 .pub .m .award::before { content: '✦ '; }
+.pub .m .area::before { content: '◦ '; color: var(--copper); }
 .pub .m a { text-decoration: none; color: inherit; border-bottom: 1px solid var(--hairline); }
 .pub .m a:hover { color: var(--copper); border-color: var(--copper); }
 .eqnote { font-size: .78em; color: var(--ink-faint); font-style: italic; }
@@ -350,6 +430,8 @@ footer .dot-admin { border: none; color: inherit; cursor: pointer; }
     </script>
   </div>
 </section>
+
+{{ROUTE}}
 
 <section id="news">
   <div class="sec-label"><span class="idx">02</span><span>News</span></div>

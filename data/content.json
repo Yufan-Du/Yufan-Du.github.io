@@ -28,9 +28,18 @@
       "ML for systems"
     ],
     "portraits": [
-      { "img": "assets/portrait-1", "caption": "Grindelwald, Switzerland" },
-      { "img": "assets/portrait-2", "caption": "Busan, Korea" },
-      { "img": "assets/portrait-3", "caption": "Great Ocean Road, Australia" }
+      {
+        "img": "assets/portrait-1",
+        "caption": "Grindelwald, Switzerland"
+      },
+      {
+        "img": "assets/portrait-2",
+        "caption": "Busan, Korea"
+      },
+      {
+        "img": "assets/portrait-3",
+        "caption": "Great Ocean Road, Australia"
+      }
     ],
     "education": [
       {
@@ -50,6 +59,12 @@
       }
     ]
   },
+  "route": [
+    "applied physics",
+    "chip physical design",
+    "compilers & architecture",
+    "LLM serving systems"
+  ],
   "news": [
     {
       "date": "2026-06",
@@ -91,7 +106,8 @@
       "venueFull": "ACM/IEEE Design Automation Conference",
       "year": 2026,
       "award": "Best Paper Nominee",
-      "pdf": ""
+      "pdf": "",
+      "area": "physical design"
     },
     {
       "id": "du2025physicalopt",
@@ -106,7 +122,8 @@
       "venueFull": "IEEE/ACM International Conference on Computer-Aided Design",
       "year": 2025,
       "award": "",
-      "pdf": "uploads/DiffPhyOpt_iccad25.pdf"
+      "pdf": "uploads/DiffPhyOpt_iccad25.pdf",
+      "area": "physical design"
     },
     {
       "id": "du2025addressing",
@@ -125,7 +142,8 @@
       "venueFull": "International Symposium of Electronics Design Automation",
       "year": 2025,
       "award": "Honorable Mention Paper Award",
-      "pdf": "uploads/ISEDA25_DiffSizing.pdf"
+      "pdf": "uploads/ISEDA25_DiffSizing.pdf",
+      "area": "physical design"
     },
     {
       "id": "du2024fusion",
@@ -141,7 +159,8 @@
       "venueFull": "IEEE/ACM International Conference on Computer-Aided Design",
       "year": 2024,
       "award": "Best Paper Nominee",
-      "pdf": "uploads/fusionsizericcad-24.pdf"
+      "pdf": "uploads/fusionsizericcad-24.pdf",
+      "area": "physical design"
     },
     {
       "id": "guo2024heteroexcept",
@@ -161,7 +180,8 @@
       "venueFull": "IEEE/ACM International Conference on Computer-Aided Design",
       "year": 2024,
       "award": "",
-      "pdf": "uploads/ICCAD_2024_heteroexcepticc.pdf"
+      "pdf": "uploads/ICCAD_2024_heteroexcepticc.pdf",
+      "area": "CPU–GPU systems"
     },
     {
       "id": "du2024powpredict",
@@ -180,7 +200,8 @@
       "venueFull": "Design Automation Conference",
       "year": 2024,
       "award": "",
-      "pdf": "uploads/227_Camera_Ready_Paper.pdf"
+      "pdf": "uploads/227_Camera_Ready_Paper.pdf",
+      "area": "ML × EDA"
     }
   ],
   "experience": [

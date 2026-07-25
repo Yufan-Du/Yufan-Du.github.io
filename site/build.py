@@ -95,6 +95,8 @@ def render_publications(pubs, me):
         if p.get("pdf"):
             title = f'<a href="{esc(p["pdf"])}">{title}</a>'
         meta = [f'<span>{esc(p["venue"])}</span>']
+        if p.get("area"):
+            meta.append(f'<span class="area">{esc(p["area"])}</span>')
         if p.get("award"):
             meta.append(f'<span class="award">{esc(p["award"])}</span>')
         if p.get("pdf"):
@@ -111,6 +113,24 @@ def render_publications(pubs, me):
     if any_star:
         out.append('  <p class="eqnote">* equal contribution</p>')
     return "\n".join(out)
+
+
+def render_route(words):
+    """words joined by animated wires; staggered delays make one signal relay
+    left-to-right: word-wave -> wire-pulse -> word-wave -> ... -> ending via."""
+    if not words:
+        return ""
+    cycle, step = 9.0, 0.62
+    parts, i = [], 0
+    for k, w in enumerate(words):
+        parts.append(f'<span class="w" style="--cycle:{cycle}s;--d:{i*step:.2f}s">{esc(w)}</span>')
+        i += 1
+        last = k == len(words) - 1
+        cls = "wire term" if last else "wire"
+        parts.append(f'<span class="{cls}" style="--cycle:{cycle}s;--d:{i*step:.2f}s" aria-hidden="true"></span>')
+        i += 1
+    return ('<div class="route" role="img" aria-label="research path: '
+            + esc(" to ".join(words)) + '">' + "".join(parts) + "</div>")
 
 
 def render_experience(exp):
@@ -190,6 +210,7 @@ def main():
         "{{PORTRAITS}}": json.dumps(portraits, separators=(",", ":")),
         "{{ABOUT_PARAGRAPHS}}": about_paras,
         "{{INTERESTS}}": interests,
+        "{{ROUTE}}": render_route(c.get("route", [])),
         "{{NEWS}}": render_news(c["news"]),
         "{{PUBLICATIONS}}": render_publications(c["publications"], me),
         "{{EXPERIENCE}}": render_experience(c["experience"]),
