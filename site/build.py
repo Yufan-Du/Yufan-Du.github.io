@@ -83,7 +83,7 @@ def render_publications(pubs, me):
     pubs = sorted(pubs, key=lambda p: (-int(p["year"]), p["venue"]))
     any_star = any(a.endswith("*") for p in pubs for a in p["authors"])
     out, year_open = [], None
-    for p in pubs:
+    for seq, p in enumerate(pubs):
         if p["year"] != year_open:
             if year_open is not None:
                 out.append("    </div>\n  </div>")
@@ -94,6 +94,13 @@ def render_publications(pubs, me):
         title = esc(p["title"])
         if p.get("pdf"):
             title = f'<a href="{esc(p["pdf"])}">{title}</a>'
+        quip = ""
+        if p.get("quip"):
+            conf, _, yr = p["venue"].rpartition(" ")
+            lot = f"LOT YFD-{int(yr) % 100:02d}{chr(65 + seq % 26)}·{conf.upper().replace(' ', '')}"
+            quip = (
+                f'\n        <p class="q"><span class="lot">{esc(lot)}</span> — {esc(p["quip"])}</p>'
+            )
         meta = [f'<span>{esc(p["venue"])}</span>']
         if p.get("area"):
             meta.append(f'<span class="area">{esc(p["area"])}</span>')
@@ -105,7 +112,7 @@ def render_publications(pubs, me):
             f'      <article class="pub">\n'
             f'        <h3 class="t">{title}</h3>\n'
             f'        <p class="a">{render_authors(p["authors"], me)}</p>\n'
-            f'        <p class="m">{"".join(meta)}</p>\n'
+            f'        <p class="m">{"".join(meta)}</p>{quip}\n'
             f"      </article>"
         )
     if year_open is not None:
@@ -183,6 +190,56 @@ def render_jsonld(c):
     )
 
 
+def render_now_page(c):
+    now = c.get("now", {})
+    items = "\n".join(f'      <li>{i}</li>' for i in now.get("items", []))
+    name = esc(c["meta"]["name"])
+    return f"""<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Now — {name}</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<style>
+@font-face {{ font-family:'Newsreader'; font-style:normal; font-weight:200 800; font-display:swap;
+  src:url('../assets/newsreader-var.woff2') format('woff2'); }}
+@font-face {{ font-family:'Newsreader'; font-style:italic; font-weight:200 800; font-display:swap;
+  src:url('../assets/newsreader-var-italic.woff2') format('woff2'); }}
+:root {{ --paper:#faf7f1; --ink:#211d19; --ink-soft:#57504a; --ink-faint:#8d857c;
+  --hairline:#e3dcd2; --copper:#a2542c;
+  --serif:'Newsreader','Iowan Old Style',Georgia,serif;
+  --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace; }}
+@media (prefers-color-scheme: dark) {{ :root {{ --paper:#191512; --ink:#eae3d8; --ink-soft:#b3a99c;
+  --ink-faint:#7d746a; --hairline:#322b25; --copper:#d18f62; }} }}
+body {{ margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+  font-size:clamp(16.5px,1vw + 12px,18.5px); line-height:1.62; }}
+.page {{ max-width:38rem; margin:0 auto; padding:clamp(2rem,8vh,4.5rem) 1.2rem 3rem; }}
+a {{ color:inherit; text-decoration:underline;
+  text-decoration-color:color-mix(in srgb, var(--copper) 45%, transparent);
+  text-underline-offset:2.5px; }}
+a:hover {{ color:var(--copper); }}
+.crumb {{ font-family:var(--mono); font-size:.72rem; letter-spacing:.06em; }}
+.crumb a {{ text-decoration:none; color:var(--ink-faint); }}
+.crumb a:hover {{ color:var(--copper); }}
+h1 {{ font-weight:560; font-size:2.1rem; margin:1rem 0 .2rem; }}
+.stamp {{ font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; color:var(--ink-faint);
+  text-transform:uppercase; margin-bottom:1.8rem; }}
+.stamp b {{ color:var(--copper); font-weight:400; }}
+ul {{ list-style:none; margin:0; padding:0; }}
+li {{ padding:.55rem 0 .55rem 1.4rem; position:relative; }}
+li::before {{ content:'●'; position:absolute; left:.15rem; top:.95em; font-size:.5em; color:var(--copper); }}
+.foot {{ margin-top:2.5rem; padding-top:1rem; border-top:1px solid var(--hairline);
+  font-family:var(--mono); font-size:.68rem; color:var(--ink-faint); font-style:italic; }}
+</style></head>
+<body><div class="page">
+  <p class="crumb"><a href="../">&larr; yufandu.com</a></p>
+  <h1>Now</h1>
+  <p class="stamp">what I'm doing these days · updated <b>{esc(now.get("updated", ""))}</b></p>
+  <ul>
+{items}
+  </ul>
+  <p class="foot">This is a <a href="https://nownownow.com/about">now page</a>. It changes when life does.</p>
+</div></body></html>"""
+
+
 def render_map_page(c):
     script = c["footer"].get("visitorsMapScript", "")
     return f"""<!DOCTYPE html>
@@ -243,6 +300,8 @@ def main():
     (OUT / ".nojekyll").write_text("")
     (OUT / "map").mkdir()
     (OUT / "map" / "index.html").write_text(render_map_page(c))
+    (OUT / "now").mkdir()
+    (OUT / "now" / "index.html").write_text(render_now_page(c))
     shutil.copytree(SITE / "assets", OUT / "assets")
     shutil.copytree(SITE / "uploads", OUT / "uploads")
     if (SITE / "admin").exists():

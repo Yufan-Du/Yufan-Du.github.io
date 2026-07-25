@@ -112,6 +112,28 @@ header { position: relative; padding: clamp(1.2rem, 5vh, 3.2rem) 0 0; }
   100% { stroke-dashoffset: 0; }
 }
 @media (prefers-reduced-motion: reduce) { .traces .sig { animation: none; opacity: 0; } }
+/* die regions — the floorplan reveals itself only under the cursor */
+.traces .die { pointer-events: auto; }
+.traces .region rect {
+  fill: transparent;
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.traces .region text {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .12em;
+  fill: currentColor;
+  opacity: 0;
+  transition: opacity .3s ease .08s;
+}
+.traces .region { cursor: pointer; }
+.traces .region:hover rect { opacity: .5; fill: color-mix(in srgb, currentColor 6%, transparent); }
+.traces .region:hover text { opacity: .85; }
+@media (hover: none) { .traces .die { display: none; } }
 h1 {
   font-size: clamp(2.5rem, 8vw, 3.7rem);
   font-weight: 560;
@@ -295,11 +317,55 @@ section { margin-top: clamp(2.6rem, 7vh, 4.2rem); }
   font-size: 1.5rem; font-weight: 430; color: var(--ink-faint);
   font-variant-numeric: oldstyle-nums; line-height: 1.3;
 }
-.pub { margin-bottom: 1.35rem; }
+.pub { margin-bottom: 1.35rem; position: relative; }
 .pub:last-child { margin-bottom: .6rem; }
 .pub .t { font-size: 1.06em; font-weight: 560; line-height: 1.38; margin: 0; }
 .pub .t a { text-decoration: none; }
 .pub .t a:hover { color: var(--copper); }
+/* a short wire taps in from the left while you read a paper */
+.pub::before {
+  content: '';
+  position: absolute;
+  left: -1.55rem; top: .62em;
+  width: 0; height: 1px;
+  background: var(--copper);
+  opacity: 0;
+  transition: width .28s ease, opacity .28s ease;
+}
+.pub::after {
+  content: '';
+  position: absolute;
+  left: -1.75rem; top: calc(.62em - 2.5px);
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--copper);
+  opacity: 0;
+  transition: opacity .28s ease;
+}
+.pub:hover::before { width: 1.1rem; opacity: .8; }
+.pub:hover::after { opacity: .8; }
+/* the quip — one honest sentence, only for those who linger */
+.pub .q {
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  font-style: italic;
+  font-size: .88em;
+  color: var(--ink-faint);
+  transition: max-height .32s ease, opacity .32s ease .06s, margin .32s ease;
+}
+.pub:hover .q, .pub:focus-within .q { max-height: 3.6em; opacity: 1; margin-top: .28rem; }
+.pub .q .lot {
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: .78em;
+  letter-spacing: .08em;
+  color: var(--copper);
+}
+.pub .m .award { transition: text-shadow .25s ease; }
+.pub:hover .m .award { text-shadow: 0 0 9px color-mix(in srgb, var(--copper) 55%, transparent); }
+@media (hover: none) { .pub .q { max-height: none; opacity: 1; margin-top: .28rem; } }
 .pub .a { margin: .16rem 0 0; color: var(--ink-soft); font-size: .93em; }
 .pub .a b { font-weight: 600; color: var(--ink); }
 .pub .m {
@@ -362,6 +428,21 @@ footer .dot-admin { border: none; color: inherit; cursor: pointer; }
 
 <header>
   <svg class="traces" viewBox="0 0 420 300" fill="none" aria-hidden="true">
+    <!-- floorplan regions: invisible until hovered; each is a district of the research die -->
+    <g class="die">
+      <g class="region" data-goto="publications">
+        <rect x="196" y="40" width="120" height="72"/>
+        <text x="204" y="56">PLACE &amp; SIZE</text>
+      </g>
+      <g class="region" data-goto="publications">
+        <rect x="326" y="128" width="86" height="58"/>
+        <text x="334" y="144">PWR PREDICT</text>
+      </g>
+      <g class="region" data-goto="experience">
+        <rect x="252" y="196" width="118" height="72"/>
+        <text x="260" y="212">LLM SERVE</text>
+      </g>
+    </g>
     <g stroke="currentColor" stroke-width="1.1" opacity=".34">
       <path d="M420 24 H302 V96 H218 V58 H150"/>
       <path d="M420 62 H330 V150 H262"/>
@@ -471,7 +552,8 @@ footer .dot-admin { border: none; color: inherit; cursor: pointer; }
 
 <footer>
   <span>© {{YEAR}} {{NAME}}<a class="dot-admin" href="admin/" aria-label="site admin">.</a></span>
-  <span>{{COLOPHON}} · <a href="map/">visitor map</a></span>
+  <span id="clockline"></span>
+  <span>{{COLOPHON}} · <a href="now/">now</a> · <a href="map/">visitor map</a></span>
 </footer>
 
 </div>
@@ -483,6 +565,24 @@ footer .dot-admin { border: none; color: inherit; cursor: pointer; }
     buf = (buf + e.key).slice(-seq.length);
     if (buf === seq) location.href = 'admin/';
   });
+  /* die regions scroll to their section */
+  document.querySelectorAll('.traces .region').forEach(function (r) {
+    r.addEventListener('click', function () {
+      var el = document.getElementById(r.getAttribute('data-goto'));
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+  /* the site keeps local time — mine and yours */
+  (function () {
+    var el = document.getElementById('clockline');
+    if (!el) return;
+    var h = new Date().getHours();
+    var la = new Intl.DateTimeFormat('en-US',
+      { hour: 'numeric', minute: '2-digit', timeZone: 'America/Los_Angeles' }).format(new Date());
+    el.textContent = (h >= 1 && h < 6)
+      ? 'you’re up late — it’s ' + la + ' where this site lives'
+      : la + ' in Los Angeles';
+  })();
   /* for the curious — you found the right layer of the stack */
   console.log(
     '%c\n  ┌─────────────┐\n  │  ▪ YFD-5nm  │──● you probed the right pin.\n  │   rev 2026  │\n  └──┬──┬──┬──┬─┘\n     │  │  │  │\n%cHi — this page is one JSON file, one template, one Python script.\nNo framework was harmed. Curious how it works? Ask me: nbsdyf@hotmail.com\nP.S. the portrait is clickable, and the traces up top carry a signal.',

@@ -107,7 +107,8 @@
       "year": 2026,
       "award": "Best Paper Nominee",
       "pdf": "",
-      "area": "physical design"
+      "area": "physical design",
+      "quip": "teaching timing and power to stop fighting over the same gates"
     },
     {
       "id": "du2025physicalopt",
@@ -123,7 +124,8 @@
       "year": 2025,
       "award": "",
       "pdf": "uploads/DiffPhyOpt_iccad25.pdf",
-      "area": "physical design"
+      "area": "physical design",
+      "quip": "the thesis statement: chip physical design as one differentiable program"
     },
     {
       "id": "du2025addressing",
@@ -143,7 +145,8 @@
       "year": 2025,
       "award": "Honorable Mention Paper Award",
       "pdf": "uploads/ISEDA25_DiffSizing.pdf",
-      "area": "physical design"
+      "area": "physical design",
+      "quip": "where gradient descent trips on discrete gates — and how we smoothed the floor"
     },
     {
       "id": "du2024fusion",
@@ -160,7 +163,8 @@
       "year": 2024,
       "award": "Best Paper Nominee",
       "pdf": "uploads/fusionsizericcad-24.pdf",
-      "area": "physical design"
+      "area": "physical design",
+      "quip": "placement and sizing were always optimized as strangers; we fused them"
     },
     {
       "id": "guo2024heteroexcept",
@@ -181,7 +185,8 @@
       "year": 2024,
       "award": "",
       "pdf": "uploads/ICCAD_2024_heteroexcepticc.pdf",
-      "area": "CPU–GPU systems"
+      "area": "CPU–GPU systems",
+      "quip": "timing exceptions look hopelessly sequential — until you split them across CPU and GPU"
     },
     {
       "id": "du2024powpredict",
@@ -201,7 +206,8 @@
       "year": 2024,
       "award": "",
       "pdf": "uploads/227_Camera_Ready_Paper.pdf",
-      "area": "ML × EDA"
+      "area": "ML × EDA",
+      "quip": "predicting post-layout power before the layout exists"
     }
   ],
   "experience": [
@@ -249,5 +255,14 @@
   "footer": {
     "visitorsMapScript": "https://mapmyvisitors.com/map.js?cl=ffffff&w=400&t=n&d=cIGsXvSGr9e_Cz3o-ka7A2RlK4DVRQSZSOiWZ4y8Q5w",
     "colophon": "Set in Newsreader. No trackers, no frameworks, one JSON file."
+  },
+  "now": {
+    "updated": "2026-07",
+    "items": [
+      "Spending the summer at AWS in San Jose, making multi-node, multi-GPU LLM serving faster.",
+      "Thinking about the gap between what the model wants and what the silicon gives — and whether compilers or serving systems should close it.",
+      "Back to <a href=\"https://vast.cs.ucla.edu/\">UCLA VAST</a> in the fall for year two of the PhD.",
+      "Off hours: chasing coastlines and cable cars — the homepage portrait rotates through the evidence."
+    ]
   }
 }
