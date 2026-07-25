@@ -38,6 +38,7 @@
     { "date": "2026-06", "text": "Started as an Applied Scientist Intern at <a href=\"https://aws.amazon.com/\">AWS</a> in San Jose, working on multi-node, multi-GPU LLM serving." },
     { "date": "2025-09", "text": "Joined <a href=\"https://vast.cs.ucla.edu/\">UCLA VAST lab</a> as a PhD student." },
     { "date": "2025-05", "text": "Our ISEDA 2025 paper on differentiable gate sizing received an <em>Honorable Mention Paper Award</em>." },
+    { "date": "2024-10", "text": "Our ICCAD 2024 paper on fusing global placement and gate sizing was nominated for <em>Best Paper</em>." },
     { "date": "2024-10", "text": "Our team won <em>first place</em> (out of 45 teams worldwide) in ICCAD 2024 Contest Problem C — scalable gate sizing with ML and GPU acceleration." }
   ],
   "publications": [
