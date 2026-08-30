@@ -4,7 +4,7 @@
     "title": "Yufan Du — PhD Student, UCLA Computer Science",
     "description": "Yufan Du is a PhD student at UCLA advised by Jason Cong, working on domain-specific accelerators, compilers, and LLM serving systems.",
     "email": "nbsdyf@hotmail.com",
-    "scholar": "",
+    "scholar": "https://scholar.google.com/citations?user=dnFEx_AAAAAJ",
     "github": "https://github.com/Yufan-Du",
     "linkedin": "https://www.linkedin.com/in/yufan-du-3492172a2/",
     "highlightAuthor": "Yufan Du"
@@ -253,7 +253,6 @@
     }
   ],
   "footer": {
-    "visitorsMapScript": "https://mapmyvisitors.com/map.js?cl=ffffff&w=400&t=n&d=cIGsXvSGr9e_Cz3o-ka7A2RlK4DVRQSZSOiWZ4y8Q5w",
     "colophon": "Set in Newsreader. No trackers, no frameworks, one JSON file."
   },
   "now": {

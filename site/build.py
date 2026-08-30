@@ -240,18 +240,6 @@ li::before {{ content:'●'; position:absolute; left:.15rem; top:.95em; font-siz
 </div></body></html>"""
 
 
-def render_map_page(c):
-    script = c["footer"].get("visitorsMapScript", "")
-    return f"""<!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Visitor map — {esc(c['meta']['name'])}</title><meta name="robots" content="noindex">
-<style>body{{font-family:Georgia,serif;background:#faf7f1;color:#211d19;max-width:44rem;margin:3rem auto;padding:0 1.2rem}}
-a{{color:#a2542c}}</style></head>
-<body><p><a href="../">&larr; back</a></p><h1>Visitor map</h1>
-<div><script type="text/javascript" id="mapmyvisitors" src="{esc(script)}"></script></div>
-</body></html>"""
-
-
 def main():
     c = json.loads((ROOT / "data" / "content.json").read_text())
     tpl = (SITE / "template.html").read_text()
@@ -298,8 +286,6 @@ def main():
     (OUT / "index.html").write_text(out)
     (OUT / "CNAME").write_text("yufandu.com\n")
     (OUT / ".nojekyll").write_text("")
-    (OUT / "map").mkdir()
-    (OUT / "map" / "index.html").write_text(render_map_page(c))
     (OUT / "now").mkdir()
     (OUT / "now" / "index.html").write_text(render_now_page(c))
     shutil.copytree(SITE / "assets", OUT / "assets")
