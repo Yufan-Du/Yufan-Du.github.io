@@ -30,9 +30,10 @@ def month_label(ym):
 
 def render_links(meta):
     items = [("email", "mailto:" + meta["email"])]
+    labels = {"scholar": "google scholar"}
     for key in ("scholar", "github", "linkedin"):
         if meta.get(key):
-            items.append((key, meta[key]))
+            items.append((labels.get(key, key), meta[key]))
     items.append(("cv", "uploads/cv.pdf")) if (SITE / "uploads" / "cv.pdf").exists() else None
     return "\n".join(
         f'<a href="{esc(url)}"{" rel=me" if key != "email" else ""}>{key}</a>'
